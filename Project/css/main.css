@@ -63,6 +63,34 @@
     display: flex;
   
 }
+.flex-colum{
+    flex-direction: column;
+}
+
+.flex{
+    display: flex;
+}
+
+.content-center{
+    justify-content: center;
+
+}
+
+.content-between{
+    justify-content: space-between;
+
+}
+
+.item-center{
+    align-items: center;
+    
+}
+
+.aligin-center{
+    text-align: center;
+}
+
+
 
 
 .tb-hover:hover{
@@ -86,6 +114,22 @@
 .tb-hover .icon-hov:hover{
     color: green;
 }
+
+.pagination{
+justify-content: center;
+    display: flex;
+    
+}
+
+.pagination-item{
+    width: 10px;
+    height: 10px;
+    background:black;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+
  .icon a :hover  {
      color: green;
  }
@@ -184,7 +228,7 @@
 
 .box-4{
     text-align: center;
-
+    margin: 20px;
 }
 
 .box-5 img{
@@ -206,8 +250,11 @@
     background-image: url(../img/fon-photo-2.jpg);
     position: relative;
     border: 1px solid black;
+    object-fit: cover;
+    filter: blur() brightness();
     
 }
+
 
 
 .my-services{
@@ -220,7 +267,7 @@
 #pt{
     width: 100%;
     height: auto;
-    margin: 0px;
+    margin: 10px;
 }
 
 #education{
@@ -250,12 +297,141 @@ margin: auto;
 
 .st-box{
     color:#fff;
-    display: inline;
+    
     
 }
 
 .st-box .font-size-{
     font-size: 15px;
     font-weight: 400;
+}
+
+.st-box-1{
+    color:#fff;
+
+}
+
+.contact-contanier{
+    text-align: center;
+}
+
+
+.question-bar{
+    text-align: center;
+}
+
+.element-bar  input{
+width: 400px;
+height: 40px;
+margin: 10px;
+}
+
+.element-bar-1 input{
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    background-color: #35a22c;
+    cursor: pointer;
+    margin: 20px 10px;
+    
+}
+
+
+.icon-bar {
+    width: 800px;
+    height: 80px;
+    background: #f5f5f5;;
+}
+
+.icon-style{
+    font-size:1.33333333em;
+    color:green;
+    margin: 20px;
+
+}
+
+
+.p-style{
+    font-style: normal;
+    font-size: 22px;
+    color: #555;
+    display: contents;
+}
+
+.info-bar-1  {
+    margin: 10px;
+    background: #f5f5f5;
+    margin: 60px 0px;
+    width: 800px;
+    height: 80px;
+}
+.info-bar-2{
+    background: #f5f5f5;
+   margin-top: -45px;
+    width: 800px;
+    height: 80px;
+}
+    
+.info-bar-3{
+
+    background: #f5f5f5;
+    margin-top: 20px;
+     width: 800px;
+     height:80px;
+
+}
+
+
+ .info-bar-3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.info-bar-2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+.map{
+margin-top: 55px;
+
+}
+
+
+
+#end-contanier{
+    width: 100%;
+    height: 221px;
+    margin-top: 80px;
+    background: #333    ;
+}
+
+
+.end-bar{
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+}
+
+  .icon-detail:hover{
+    color:#35a22c;
+    cursor: pointer;
+    
+}
+
+.icon-detail{
+    margin: 50px;
+    font-size: 35px;
+    color: #f5f5f5;
+    
+}
+
+
+.p-end-style{
+text-align: center;
+color: #cccccc;
+font-size: 13px;
+font-weight: 400;
 }
 

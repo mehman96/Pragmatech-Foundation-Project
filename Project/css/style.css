@@ -113,54 +113,25 @@ border-bottom: 1px solid white;
     margin: -10px;
 }
 
-  .skill-bar {
-        text-align: center;
-        display: flex;
-        justify-content: space-between;
-        padding: 11px 100px;
-        margin: 20px;
-    }
 
-    .skill-bar-{
-        text-align: center;
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 100px;
-        margin: 20px;
-    }
-
-
- .my-site{
-        padding: 10px;
- }
-
-
-.skill-bar span{
-        margin: 30px;
-        color: #888;
-    
-    }
-.skill-bar h5 span{
-    padding: 0px 120px;
-    margin: 37px;
+  .skill-bar progress{
+    width: 350px ;
+    height: 10px;
+ 
 }
 
-.skill-bar h5 {
-   margin: 0px -76px;
+
+.skill-bar-2 progress{
+    width: 350px ;
+    height: 10px;
+
 }
 
-.skill-bar- span{
-        margin: 10px;
-        color:  #888;
-    
-    }
-
-.skill-bar- h5 span{
-    padding: 0px 120px;
-    margin: 37px;
+.skill-bar-1 progress{
+    width: 350px ;
+    height: 10px;
 }
 
-.skill-bar- h5{
-    margin: 0px -76px;
+.skill-item{
+    padding: 0px 100px 0px 100px;
 }
-
