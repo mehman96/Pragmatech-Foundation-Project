@@ -49,8 +49,6 @@ border-bottom: 1px solid white;
 
 
 
-
-
 .bg-header {
     background-image: url(../img/bg-header.jpg);
     width: 100%;
@@ -99,39 +97,46 @@ border-bottom: 1px solid white;
 
 .my-site h5 {
         text-align: center;
+        transform: translate(10px ,90px);
         
     }
  
 .my-site h2{
     text-align: center;
+    transform: translate(10px, 60px);
+    font-size: 40px;
+    font-weight: 500;
   
 }
 
 
 .about-me p{
     text-align: center;
-    margin: -10px;
+    margin: 70px;
 }
 
 
-  .skill-bar progress{
-    width: 350px ;
-    height: 10px;
- 
+
+.skill-bar progress{
+    width: 50%;
+}
+
+.skill-bar{
+    width: 100%;
+    padding: 10px 0px 10px 100px;
 }
 
 
-.skill-bar-2 progress{
-    width: 350px ;
-    height: 10px;
-
+.skill-bar progress{
+    width: 100% ;
+    
 }
 
 .skill-bar-1 progress{
-    width: 350px ;
-    height: 10px;
+    /* width: 350px ; */
+    /* height: 10px; */
 }
 
 .skill-item{
-    padding: 0px 100px 0px 100px;
+    /* padding: 0px 100px 0px 100px; */
 }

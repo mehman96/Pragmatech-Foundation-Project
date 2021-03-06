@@ -60,7 +60,7 @@
 /* 12 setir ucun 12 col yaziram */
 
 .row{
-    display: flex;
+    justify-content: center;
   
 }
 .flex-colum{
@@ -148,15 +148,14 @@ justify-content: center;
     cursor: pointer;
 }
 .box-2{
-    margin: 10px ;
-    margin-left: 40px;
-    margin-top: 15px;
+margin: 10px;
+padding: 0px 10px 0px 100px;
     
     
 }
 
 .box-2 img{
-    width: 550px;
+    width: 100%;
     height: 300px;
 }
     
@@ -246,13 +245,19 @@ justify-content: center;
 }
 
 #my_services {
-    height: 600px;
+    height: 800px;
     background-image: url(../img/fon-photo-2.jpg);
     position: relative;
     border: 1px solid black;
     object-fit: cover;
     filter: blur() brightness();
     
+}
+
+.overline{
+    position: absolute;
+    z-index: 4;
+    background-color: rgba(black ,grey ,black , alpha)
 }
 
 
@@ -267,7 +272,7 @@ justify-content: center;
 #pt{
     width: 100%;
     height: auto;
-    margin: 10px;
+    
 }
 
 #education{
@@ -338,7 +343,7 @@ margin: 10px;
 
 
 .icon-bar {
-    width: 800px;
+    width: 50%;
     height: 80px;
     background: #f5f5f5;;
 }
@@ -346,7 +351,7 @@ margin: 10px;
 .icon-style{
     font-size:1.33333333em;
     color:green;
-    margin: 20px;
+    margin: 10px;
 
 }
 
@@ -362,13 +367,13 @@ margin: 10px;
     margin: 10px;
     background: #f5f5f5;
     margin: 60px 0px;
-    width: 800px;
+    width: 100%S;
     height: 80px;
 }
 .info-bar-2{
     background: #f5f5f5;
    margin-top: -45px;
-    width: 800px;
+    width: 100%;
     height: 80px;
 }
     
@@ -394,7 +399,7 @@ margin: 10px;
 }
 
 .map{
-margin-top: 55px;
+margin-top: 10px;
 
 }
 
@@ -435,3 +440,6 @@ font-size: 13px;
 font-weight: 400;
 }
 
+.span-size{
+    margin: 10px;
+}
