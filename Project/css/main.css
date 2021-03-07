@@ -95,7 +95,7 @@
 
 
 .tb-hover:hover{
-    background-image:linear-gradient(#00ffff, #99ff99) ;
+    /* background-image:linear-gradient(#00ffff, #99ff99) ; */
 
 }
 
@@ -248,13 +248,13 @@ margin: 14px;
 
 .box-4{
     text-align: center;
-    margin: 20px;
+    margin: 70px;
 }
 
 .box-5 img{
     border-radius: 50%;
     margin-bottom: 48px;
-    margin-right:  -65px; ;
+    margin-right: -65px; ;
     width: 60px;
     height: 60px;
 }
@@ -271,7 +271,7 @@ margin: 14px;
     position: relative;
     border: 1px solid black;
     object-fit: cover;
-  background-size: cover;
+    background-size: cover;
   
 }
 
@@ -282,8 +282,11 @@ margin: 14px;
     width: 100%;
     height: 800px;
 }
-
-
+ 
+/* .tb-hover:hover{
+    background: red;
+    color: white;
+} */
 
 .my-services{
     right: 0px;
@@ -331,31 +334,37 @@ transform: translate(14px,60px);
 
 
 #static-bar{
-    margin: auto;
-    height: 250px;
+    height: 210px;
     width: 100%;
     background-color: rgb(32, 32, 32);
     background-size: cover;
     display: flex;
-    justify-content: space-evenly;
+   justify-content: space-around; 
+   transform: translate(0px, 70px);
    
 }
 
 .st-box{
     color:#fff;
-    
+    margin: 50px;
     
 }
 
-.st-box .font-size-{
+.margin-box{
+    margin: 5px 10px;
+    font-size: 40px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.span-margin{
     font-size: 15px;
     font-weight: 400;
+    color: #ffffff;
 }
 
-.st-box-1{
-    color:#fff;
 
-}
+
 
 .contact-contanier{
     text-align: center;
@@ -363,10 +372,13 @@ transform: translate(14px,60px);
 
 
 .question-bar{
-    text-align: center;
-    transform: translate(0px,10px);
+transform: translate(50px, 10px);
 }
 
+
+.info-box{
+    width: 75%;
+}
 
 .element-bar input{
 border: 1px solid #eee;
@@ -377,22 +389,24 @@ margin: 10px;
 }
 
 .element-bar-1 input{
-    width: 20%;
+    width: 25%;
     height: 60px;
     color: #fff;
     background-color: #35a22c;
     cursor: pointer;
-    margin: 20px 10px;
-    transform: translate(10px,10px);
+    
 }
 
-.element-bar-1{
-width: 100%;
-
+.element-bar-1  :hover{
+    
 }
+
+
+
 .element-bar-2 textarea{
     width: 83%;
     border: 1px solid #eee;
+    margin: 10px;
 }
 
 .icon-bar {
@@ -417,32 +431,28 @@ width: 100%;
 
 
 .info-bar{
-    width: 100%;
-    /* transform: translate(0px, 10px); */
     background: #f5f5f5;
-    height: 80px;
+    height: 70px;
+    margin: 20px;
 }
 
 
 .info-bar-1  {
-    transform: translate(0px ,10px);
     background: #f5f5f5;
-    width: 100%;
-    height: 80px;
+    height: 70px;
+    margin: 20px;
 }
 .info-bar-2{
     background: #f5f5f5;
-   transform: translate(0px,20px);
-    width: 100%;
-    height: 80px;
+    height: 70px;
+    margin: 20px;
 }
     
 .info-bar-3{
 
     background: #f5f5f5;
-    transform: translate(0px,27px);
-     width: 100%;
-     height:80px;
+    margin: 20px;
+     height:70px;
 
 }
 
@@ -458,19 +468,13 @@ width: 100%;
 
 }
 
-.map{
-transform: translate(0px,55px);
-
-}
-
-
 
 #end-contanier{
     width: 100%;
     height: 221px;
-    margin-top: 80px;
+    margin-top: 60px;
     background: #333;
-    transform: translate(10px,70px);
+    
 }
 
 
