@@ -92,20 +92,25 @@
 }
 
 
-
-
-.tb-hover:hover{
-    /* background-image:linear-gradient(#00ffff, #99ff99) ; */
-
-}
-
 .tb-hover{
-    font-size: 25px;
+    font-size: 15px;
     margin: 10px;
     border: 1px solid #555;
     color: white;
     font-weight: 400;
 }
+
+
+
+.tb-hover{
+    color: #ffffff;
+    width: 100%;
+    height: 300px; 
+    transition: 5s;
+    transform: translate(0px, 25px);
+}
+
+
 
 .icon-design{
     color: #35a22c;
@@ -114,20 +119,10 @@
 }
 
 
-
-.hover-1:hover{
-    color: #fff;
-}
- /* .tb-hover .icon{
-    font-size: 45px;
-}
-.tb-hover .icon-hov:hover{
-    color: green;
-} */
-
 .pagination{
 justify-content: center;
-    display: flex;
+display: flex;
+transform: translate(15px,70px);
     
 }
 
@@ -136,10 +131,12 @@ justify-content: center;
     height: 10px;
     background:black;
     border-radius: 50%;
-    margin: 10px;
+    margin: 20px;
 }
 
-
+.pagination-1{
+    display: flex;
+}
 
 
  .icon a :hover  {
@@ -150,6 +147,8 @@ justify-content: center;
 
 .box{
     text-align: center;
+    transform: translate(0px ,40px);
+    color: #ffff;
 
     
 }
@@ -169,12 +168,16 @@ justify-content: center;
 }
 
 .box-2{
-margin: 14px;
+width: 100%;
+height: 243px;
+transform: translate(0px, 10px);
+margin: 10px;
 }
 
 .box-2 img{
+    object-fit: cover;
     width: 100%;
-    height: 300px;
+    height: 243px;
 }
     
 
@@ -213,11 +216,12 @@ margin: 14px;
 
 .box-3{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     color: #ffffff;
     font-size: 40px;
     font-weight: 500;
-    margin: 0px;
+    width: 100%;
+    margin: 0px auto;
 }
 
 
@@ -227,23 +231,25 @@ margin: 14px;
     color: #fff;
     border: solid 2px rgba(255,255,255,.5);
     border-color: #35a22c;
-    border-width: 3px;
+    transform: translate(-20px, 10px);
+        
 }
 
 .box-3 .text-name{
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 700;
     color: #ffff;
-    margin: 10px;
-
+    font-style: normal;
+    font-style: normal;
+    transform: translate(45px, 10px);
 }
 
 .box-3 .text-size{
-    color: #ddd;
-    font-size: 18px;
-    font-weight: 700;
-    /* border-block-end: 1px solid black; */
-
+    color: #999;;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    margin: 40px;
 }
 
 .box-4{
@@ -266,12 +272,13 @@ margin: 14px;
 }
 
 #my_services {
-    height: 800px;
+    height: 600px;
     background-image: url(../img/fon-photo-2.jpg);
     position: relative;
     border: 1px solid black;
     object-fit: cover;
     background-size: cover;
+    transform: translate(0px ,30px);
   
 }
 
@@ -280,16 +287,23 @@ margin: 14px;
     z-index: 4;
     background-color: rgba(20, 20, 20, .7);
     width: 100%;
-    height: 800px;
+    height: 600px;
 }
  
-/* .tb-hover:hover{
-    background: red;
-    color: white;
-} */
+
+.box:hover .icon-design {
+   color: #ffffff;
+   } 
+.box:hover .tb-hover{
+    background:linear-gradient(#35a22c 0%,#0ea8cf 100%);
+    overflow: hidden;
+}
+
+
+
 
 .my-services{
-    right: 0px;
+
     position: absolute;
     display: flex;
 }
@@ -298,11 +312,11 @@ margin: 14px;
 #pt{
     width: 100%;
     transform: translate(10px, 70px);
-    
+    height: 770px;
 }
 
 #education{
-height: 800px;
+height: 1100px;
 background-image: url(../img/bg-photo-1.jpg);
 position: relative;
 object-fit: cover;
@@ -315,7 +329,7 @@ transform: translate(10px, 70px);
     z-index: 5;
     background-color: rgba(20, 20, 20, .6);
     width: 100%;
-    height: 800px;
+    height: 1100px;
 }
 
 
@@ -385,6 +399,7 @@ border: 1px solid #eee;
 height: 40px;
 width: 83%;
 margin: 10px;
+outline: none;
 
 }
 
@@ -394,19 +409,15 @@ margin: 10px;
     color: #fff;
     background-color: #35a22c;
     cursor: pointer;
+
     
 }
-
-.element-bar-1  :hover{
-    
-}
-
-
 
 .element-bar-2 textarea{
     width: 83%;
     border: 1px solid #eee;
     margin: 10px;
+    outline: none;
 }
 
 .icon-bar {
