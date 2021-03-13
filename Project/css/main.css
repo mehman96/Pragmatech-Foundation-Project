@@ -60,7 +60,8 @@
 /* 12 setir ucun 12 col yaziram */
 
 .row{
-    justify-content: center;
+    justify-content: space-around;
+    display: flex;
     
   
 }
@@ -170,17 +171,18 @@ transform: translate(15px,70px);
 .box-2{
 width: 100%;
 height: 243px;
-transform: translate(0px, 10px);
 margin: 10px;
 }
 
 .box-2 img{
     object-fit: cover;
-    width: 100%;
+    width: 73%;
     height: 243px;
+    transform: translate(10%,10%);
 }
-    
-
+    .box-2:hover{
+        animation-name:fadeInUp;
+    }
 
 .box-header-1 ul {
     display: flex;
