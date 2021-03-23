@@ -180,9 +180,6 @@ margin: 10px;
     height: 243px;
     transform: translate(10%,10%);
 }
-    .box-2:hover{
-        animation-name:fadeInUp;
-    }
 
 .box-header-1 ul {
     display: flex;
@@ -284,7 +281,7 @@ margin: 10px;
   
 }
 
-    .overline{
+    .overline-2{
     position: absolute;
     z-index: 4;
     background-color: rgba(20, 20, 20, .7);
@@ -326,7 +323,7 @@ background-size: cover;
 transform: translate(10px, 70px);
 }
 
-.overline-1{
+.overline-3{
     position: absolute;
     z-index: 5;
     background-color: rgba(20, 20, 20, .6);
@@ -411,7 +408,7 @@ outline: none;
     color: #fff;
     background-color: #35a22c;
     cursor: pointer;
-
+    transform: translate(10px,10px);
     
 }
 
@@ -484,9 +481,9 @@ outline: none;
 
 #end-contanier{
     width: 100%;
-    height: 221px;
+    height: 250px;
     margin-top: 60px;
-    background: #333;
+    background: #222;
     
 }
 
@@ -494,7 +491,7 @@ outline: none;
 .end-bar{
     justify-content: center;
     display: flex;
-    margin-top: 20px;
+    height: 190px;
 }
 
   .icon-detail:hover{
@@ -504,11 +501,16 @@ outline: none;
 }
 
 .icon-detail{
-    margin: 50px;
-    font-size: 35px;
+    margin: 30px;
+    font-size: 20px;
     color: #f5f5f5;
-    
+    font-weight: 400;
+    padding: 40px 0 0px 0;
+    transition: 1s;
+    border-radius: 30%;
 }
+
+
 
 
 .p-end-style{

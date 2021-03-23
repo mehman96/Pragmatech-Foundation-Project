@@ -20,15 +20,16 @@ body{
     justify-content: space-around;
     position: absolute;
     z-index: 2 ;
-    
     align-items: center;
 
 }
+
 
   .tb-setting ul {
     display: flex;
     list-style: none;
     margin-left: 30px;
+    
     
      
 }
@@ -43,11 +44,9 @@ body{
     
 }
 
-.tb-setting ul li  {
-border-bottom: 1px solid white;
+.tb-setting ul li :hover{
+    color: #35a22c;
 }
-
-
 
 .bg-header {
     background-image: url(../img/bg-header.jpg);
@@ -55,7 +54,15 @@ border-bottom: 1px solid white;
     height: 700px;
     position: relative;
 }
+
+
+
 /* top bar end */
+
+
+
+
+
 
 /* nb-continer start */
 #nb-continer{
@@ -128,7 +135,7 @@ border-bottom: 1px solid white;
 
 .skill-bar{
     width: 100%;
-    background: #fff;
+   
     border-radius: 10px;
 }
 
@@ -166,13 +173,11 @@ border-bottom: 1px solid white;
     position: relative;
     height: 4px;
     width: 100%;
-    background:#ddd;
+    background: rgba(1, 1, 1, .1);
     border-radius: 10px;
     transform: scaleX(0);
     transform-origin: left;
-    box-shadow:inset 0px 1px 1px rgba(0, 0, 0, 0.5),
-                     0px 1px  rgba(255, 255, 255, 0.8);
-animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;                 
+    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;                 
 }
 
 
@@ -185,7 +190,7 @@ animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
 
 .bar .progress-line span {
     height: 100%;
-    background:linear-gradient(#35a22c 70%,#0ea8cf 30%);
+    background:linear-gradient(45deg, #35a22c 0%,#0ea8cf 100%);
     border-radius: 10px;
     position: absolute;
     transform: scaleX(0);
