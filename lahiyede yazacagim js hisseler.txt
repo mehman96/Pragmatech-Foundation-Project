@@ -1,0 +1,12 @@
+1.sayti acanda ekranin ortasinda yumru logo yaranir sonra ana sehifede acilir.
+1.1 tb-continer hissesi
+2.tb-setting hissesinde ul li icindekiler slider hissesi
+3. nb-info hissesinde dinamiklik
+4. my_services section icindeki col-12 lerin slider hisseleri
+5. pt sectionlarin sekilleri slider hissesi yazilmali ve
+sekilleri hover eliyende effekt vermek
+6. education section icinde hereketlilik
+7. testimionals hiseesinde col-12 icindeki box-4 icindekiler 
+hereketlilik vermek
+8. static bar icinde reqemlerde hereketlilik
+9. saytin sonunda ox qoyanda klik edende saytin bas hissesine dogru hereketi
