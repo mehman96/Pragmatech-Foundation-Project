@@ -1,0 +1,55 @@
+document.getElementById(id) -return 
+ yazdiğımız kodda id funksiyası olan elementi qaytarır.
+yəni id verdiyimiz elementi idarə etmək üçün metoddur.əgər bu id aid hec bir element və ya kod
+yoxdusa o bize "null" qaytarır. null o deməkdirki yəni onun içində belə element yoxdu.
+eyni id ilə çoxlu kod varsa bu metodda sadece ən birinci yazılanı icra eliyir.
+
+document.getElementsByTagName(name)-return
+yazığımız koddu bize html collection obyekti olaraq qaytarır.html -collection dediyimizdə odur ki array siyahısıdır.
+array- bir çox element bir yere yığmaq üçün metoddur.
+bu metodda elemente indeks verdikde 0 dan başlayaraq bütün elementləri qaytarır.
+
+document.getElementsByClassName(name)-return
+kodda olan bütün elementləri verdiyimiz class adina görə HTMLCOLLection object kimi qaytara bilir.
+object-massiv yaratmağa imkan verir.obyekt bir ad verib onun içərisində dəyərlər verib istifadə edə bilərik.
+əgər metodun sonunda nöqtə qoya biliremsə objectdi.
+
+document.querySelector()-return
+bu metod css fayılında yazdığımız kodlarda uyğun elementləri qaytarır.
+bu metod uyğun olan kodlardan ilk elementi qaytarır.
+
+querySelectorAll()-bu isə yazdığımız bütün kodları qaytarır.
+əgər yazdığımız kod bir neçə istifadə təkrar olunarsa (məsələn eyni id sehifede 3-4 defe )
+onda uyğun olan element ilk elementi qaytarır.
+
+document.createElement(element)-BUTTON-void
+HTML elementləri tez -tez mətnlərlə baglı olur.mətnli bir düymə yaratmaq üçün elemetin obyektinin ozune
+internalText və ya innerHTML  kodları ilə verilir.
+
+removeChild() -return
+müəyyən edilmiş elementin düyününü silmək istifadə olunur
+həmin düyün bir düyün obyekti kimi qaytarır. yoxdusa əgər boş qaytarır.
+silinmiş düyün DOM-un hissesi olmur.silinmiş düyünü bir elementə yerləşdirmək mümkündür.
+
+appendChild-çıxarılan düyünü eyni hissəyə əlavə etmək üçün istifadə olunur
+
+replaceChild() -bir düyünü başqa bir ilə əvəz etmək üçün istifadə olunur
+
+document.write(text)-bu metodu hər hansı bir ifadəni HTML da və ya javaScript kodu yazmaq üçün istifadə olunur.
+bu metod ən çox test etmək üçün istifadə olunur.əgər test üçün HTML də yazılarsa onda bütün HTML hissələri silinəcək.
+element.addEventListener-göstərilən elementə hadisə əlavə edir.
+hadisə dedikdə yəni nəyinsə olmağı ilə bağlı brauzerin siqnal vermesidir.
+
+removeEventListener () -göstərilən elementdə olan hadisəni silmək üçün istifadə olunur.
+
+onclick event-bir elemente tiklayanda olur.
+
+onload event-bir obyekt yükləndikdə baş verir.
+<body> elementində bütün səhifəyə aid kodlar olur(şəkil css kodları və.s)
+yükəndikdən sora script icra etmək üçün istifadə olunur
+Yükləmə hadisəsi brauzer növünü versiyasını yoxlamaq üçün web saytın versiyasını yükləmək üçün istifadə olunur.
+ 
+
+
+
+
