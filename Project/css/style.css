@@ -1,7 +1,9 @@
+
 body{
     margin: 0px;
-    font-family: 'Nunito Sans';
 }
+
+
 #page{
     /* position: relative; */
 }
@@ -54,7 +56,7 @@ body{
 .bg-header {
     background-image: url(../img/bg-header.jpg);
     width: 100%;
-    height: 700px;
+    height: 710px;
     position: relative;
     z-index: 1;
 }
@@ -78,7 +80,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 700px;
+    height: 710px;
     
 }
 
