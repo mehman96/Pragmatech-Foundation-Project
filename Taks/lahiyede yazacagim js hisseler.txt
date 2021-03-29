@@ -9,5 +9,5 @@ sekilleri hover eliyende effekt vermek
 7. testimionals hiseesinde col-12 icindeki box-4 icindekiler 
 hereketlilik vermek
 8. static bar icinde reqemlerde hereketlilik
-9.end-bar olan iconlara klik edende lahiyenin basina qayidir.
+9.element-bar-1 button klik edende olan animation
 10. saytin sonunda ox qoyanda klik edende saytin bas hissesine dogru hereketi
