@@ -1,0 +1,223 @@
+*{
+    margin: 0px;
+}
+.col-1{
+    width:calc(100%/12*1)
+}
+
+.col-2{
+    width:calc(100%/12*2)
+}
+.col-3{
+    width:calc(100%/12*3)
+}
+
+.col-4{
+    width:calc(100%/12*4)
+}
+
+
+.col-5{
+
+    width:calc(100%/12*5)
+}
+
+
+.col-6{
+    width:calc(100%/12*6)
+
+}
+
+.col-7{
+    width:calc(100%/12*7)
+}
+
+.col-8{
+    width:calc(100%/12*8)
+}
+
+.col-9{
+    width:calc(100%/12*9)
+}
+
+.col-10{
+    width:calc(100%/12*10)
+}
+
+.col-11{
+    width:calc(100%/12*11)
+}
+    
+
+.col-12{
+    width:calc(100%/12*12)
+}
+
+body{
+    font-family: 'Nunito Sans';
+}
+
+
+
+/* cedvel qurmaq ucun class */
+.container{
+    width: 1200px;
+    margin: auto;
+}
+/* sutun ve setirler ucun class   */
+/* 12 setir ucun 12 col yaziram */
+
+.row{
+    justify-content: space-around;
+    display: flex;
+}
+.row-1{
+    justify-content: center;
+    display: flex;
+}
+.box{
+    text-align: center;
+    transform: translate(0px ,40px);
+    color: #ffff;  
+}
+ .box-header{
+     text-align: center;
+ }
+.box-header-1 ul li{
+    list-style: none;  
+    margin: 0px 40px; 
+    cursor: pointer;
+}
+
+.picture-box{
+    transform: translate(17%,3%);
+    width: 71%;
+
+}
+.box-2{
+width: 96%;
+height: 211px;
+margin: 15px;
+position: relative;
+}
+
+.image{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay{
+ position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 234px;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background: linear-gradient(45deg, #35a22c 0%,#0ea8cf 100%);
+}
+.box-2:hover .overlay{
+opacity: 1;
+}
+.text {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+
+
+.box-2 img{
+    object-fit: cover;
+    width: 100%;
+    height: 233px
+    
+}
+
+.box-header-1 ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    margin: 10px;
+}
+
+ .id-color {
+    color: #35a22c;
+    font-size: 20px;
+}
+
+.margin-id{
+display: block;
+transform: translate(14px, -13px);
+font-size: 14px;
+font-weight: 400;
+}
+
+.h-style{
+    margin: 0px;
+    font-size: 40px;
+    font-weight: 500;
+}
+#pt{
+    width: 100%;
+    /* transform: translate(10px, 70px); */
+    height: 1350px;
+}
+.pt-contianer{
+    height: 150px;
+    
+}
+
+.bg-fon{
+     background-color: rgba(0,0,0,0.6);  
+
+}
+
+.overline_{
+    width: 100%;
+    height: 1350px;
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.bg-fon{
+color: #333;
+}
+
+
+.bg-fon img{
+    object-fit: cover;
+
+}
+
+.image_{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    z-index: 3;
+}
+
+.close{
+    top: -25px;
+    right: 10px;
+    position: absolute;
+    z-index: 3;
+    
+}
+.close a{
+    color:white;
+    font-size: 15x;
+}
