@@ -65,7 +65,7 @@ body{
 /* 12 setir ucun 12 col yaziram */
 
 .row{
-    justify-content: space-around;
+    justify-content: center;
     display: flex;
 }
 .row-1{
@@ -103,7 +103,9 @@ body{
 .tb-hover{
     font-size: 15px;
     margin: 10px;
-    border: 1px solid #555;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-size: cover;
     color: white;
     font-weight: 400;
 }
