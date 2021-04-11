@@ -1,20 +1,37 @@
+// nb-contanier section start
+var i = 0
+var txt = 'Programmer' 
+var txt ='Photographer'
+var txt ='Designer'
+var speed = 50
 
-function icon(elem) {
-document.body.removeChild(elem.parentElement)
-}
-function showimgbig(elem){
-    console.log(elem)
-let overline_=`
-  
-div class="overline_ ">
-    <div class="image_" onclick="icon (this)" >
-      <img src="/Project/img/pf(1).jpg" alt="">
-      <div class="close " >
-        <i class="fas fa-times-circle"></i>
-      </div>
-  </div>  
-  
-`
-document.body.innerHTML+overline_
+function typeWriter (){
+    if (i<txt.length){
+        document.getElementById("animation-text").innerHTML+=txt.charAt(i)
+        i++
+        setInterval(typeWriter, speed)
+    }
 
 }
+
+
+
+
+
+
+
+
+
+// nb-contanier section end
+
+
+
+// my_services section start
+// var slider = document.querySelector('.box-contanier')
+// console.log(box-contanier)
+
+
+
+
+
+// my services section end

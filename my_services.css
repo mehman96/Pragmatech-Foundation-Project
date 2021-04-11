@@ -1,0 +1,184 @@
+.col-1{
+    width:calc(100%/12*1)
+}
+
+.col-2{
+    width:calc(100%/12*2)
+}
+.col-3{
+    width:calc(100%/12*3)
+}
+
+.col-4{
+    width:calc(100%/12*4)
+}
+
+
+.col-5{
+
+    width:calc(100%/12*5)
+}
+
+
+.col-6{
+    width:calc(100%/12*6)
+
+}
+
+.col-7{
+    width:calc(100%/12*7)
+}
+
+.col-8{
+    width:calc(100%/12*8)
+}
+
+.col-9{
+    width:calc(100%/12*9)
+}
+
+.col-10{
+    width:calc(100%/12*10)
+}
+
+.col-11{
+    width:calc(100%/12*11)
+}
+    
+
+.col-12{
+    width:calc(100%/12*12)
+}
+
+body{
+    font-family: 'Nunito Sans';
+}
+
+
+/* cedvel qurmaq ucun class */
+.container{
+    width: 1200px;
+    margin: auto;
+}
+/* sutun ve setirler ucun class   */
+/* 12 setir ucun 12 col yaziram */
+
+.row{
+    justify-content: center;
+    display: flex;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.tb-hidden{
+    /* overflow: hidden; */
+    /* display: none; */
+}
+
+
+#my_services {
+    height: 600px;
+    background-image: url(./Project/img/fon-photo-2.jpg);
+    position: relative;
+    object-fit: cover;
+    background-size: cover;
+    transform: translate(0px ,30px);
+    width: 100%;
+  
+}
+.overline-2{
+    position: absolute;
+    z-index: 4;
+    background-color: rgba(20, 20, 20, .7);
+    width: 103%;
+    height: 600px;
+}
+
+.box-header-1 ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    margin: 10px;
+}
+
+ .id-color {
+    color: #35a22c;
+    font-size: 20px;
+}
+
+.pagination-1{
+    display: flex;
+    justify-content: center;
+}
+
+ .icon a :hover  {
+     color: green;
+ }
+
+.box{
+    text-align: center;
+    transform: translate(0px ,40px);
+    color: #ffff;  
+}
+ .box-header{
+     text-align: center;
+ }
+.box-header-1 ul li{
+    list-style: none;  
+    margin: 0px 40px; 
+    cursor: pointer;
+}
+.tb-hover{
+    font-size: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-size: cover;
+    color:#ffff;
+    font-weight: 400;
+    width: 85%;
+    height: 300px; 
+    transition: 5s;
+    transform: translate(0px, 25px);
+    /* background: #82828c; */
+}  
+
+
+.icon-design{
+    color: #35a22c;
+    font-size: 50px;
+    font-weight: 400;
+    margin: 10px;
+}
+
+.icon-design i{
+transform: translateY(30px);
+}
+
+.pagination{
+height: 700px;
+transform: translateY(70%);
+display: flex;
+justify-content: center;
+
+}
+
+.pagination-item{
+    width: 10px;
+    height: 10px;
+    /* background:black; */
+    border-radius: 50%;
+    margin: 30px;
+}
+
+.box:hover .icon-design {
+    color: #ffffff;
+    } 
+ .box:hover .tb-hover{
+     background:linear-gradient(#35a22c 0%,#0ea8cf 100%);
+     overflow: hidden;
+ }
