@@ -371,12 +371,14 @@ font-weight: 400;
 }
 
 .box-word-style-1{
-    transform: translate(  -11px ,60px);
-    display: inline-block;
+    transform: translate(  -32px ,60px);
+   color: #ddd;
+   font-size: 40px;
+   font-weight: 500;
 }
 
 .box-word-style{
-    transform: translate(-18px,50px);
+    transform: translate(-35px,50px);
     display: flow-root;
 }
 
@@ -418,6 +420,11 @@ transform: translate(10px, 70px);
 #testimonials{
 width: 100%;
 transform: translate(14px,60px);
+}
+
+.test-contanier{
+transform: translate(20px, 10px);
+    
 }
 
 #contact-info{
