@@ -14,6 +14,19 @@
 #   len -leght sozunun qisasidi cumlenin icindrkilerin sayi ucun,
 # count -saymaq ucun 
 
+# from flask import 
+# class Student():
+#     def __init__(self, _name, _surname):
+#         self.ad=_name
+#         self.soyad=_surname
+#         print("hi")
+
+#        def Foo(self)
+#        print('hello')
+
+# stud=Student('Samir','Karimov')
+# stud2=Student('mehman','mirzeyev')
+# print(stud.ad)
 
 
 
