@@ -1,7 +1,13 @@
 
 body{
     margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    min-width: 100vh;
+
 }
+
 /* tob bar start */
 #tb{
     background: rgba(0, 0, 0, 0.0);
@@ -56,8 +62,21 @@ body{
     z-index: 1;
 }
 
-
 /* top bar end */
+
+
+/* animation-text start */
+
+.animation-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+
+}
+ 
+/* animation-text end */
 
 /* nb-continer start */
 #nb-continer{

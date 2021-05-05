@@ -1,37 +1,12 @@
-// nb-contanier section start
-var i = 0
-var txt = 'Programmer' 
-var txt ='Photographer'
-var txt ='Designer'
-var speed = 50
+// nb-continer start
 
-function typeWriter (){
-    if (i<txt.length){
-        document.getElementById("animation-text").innerHTML+=txt.charAt(i)
-        i++
-        setInterval(typeWriter, speed)
-    }
-
+const TypeWriter = function (txtELement, words, wait =3000){
+this.txtELement=txtELement;
+this.words =words;
+this.txt = ''
+this.wordIndex=0
+this.wait = parseInt (wait, 10)
+this.type();
+this.isdeleting = false;
 }
 
-
-
-
-
-
-
-
-
-// nb-contanier section end
-
-
-
-// my_services section start
-// var slider = document.querySelector('.box-contanier')
-// console.log(box-contanier)
-
-
-
-
-
-// my services section end
