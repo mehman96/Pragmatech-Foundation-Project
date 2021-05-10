@@ -1,0 +1,52 @@
+{% extends 'admin/base.html' %}  
+
+{%   block content %}
+<h3 class="my-3" >Users</h3>
+<form action='/admin/user-info'  method='POST' >
+<input type="text" class="form-control my-2" name="user_name" placeholder="user-name">
+<input type="text" class="form-control my-2" name="user_email" placeholder="user-email">
+<input type="text" class="form-control my-2" name="user_phone" placeholder="user-phone">
+<input type="textarea" class="form-control my-2" name="user_message" placeholder="user-message">
+
+</form>
+<hr>
+
+<form action='/admin/user-info'  method='POST' >
+<input type="text" class="form-conrol my-2 "  name="user_adress"  placeholder="user-adress">
+ <input type="text" class="form-conrol my-2 "  name="resume_link"  placeholder="resume-link">
+<input type="text" class="form-conrol my-2 "  name="google_map"  placeholder="google-map">
+</form>
+<hr>
+
+<h3 class="my-3" >Elave olunanlar</h3>
+ <table class="table">
+     <thead>
+         <tr>
+             <th>id</th>
+             <th>usr_info</th>
+             <th>link</th>
+         </tr>
+     </thead>
+     <tbody>
+      
+        {% for Posts in usr_info %}
+        
+        <tr>
+            <td scope="row">1</td>
+            <td> usr 01</td>
+            <td>
+                <a href=""> Delete</a>
+                <a href="">Update </a>
+            </td>
+        </tr>
+        {% endfor %}
+
+     </tbody>
+ </table>
+
+
+
+{% endblock %}
+
+
+    
