@@ -2,7 +2,7 @@
 
 {%   block content %}
 <h3 class="my-3" >İstifadəcilər</h3>
-<form action='/admin/user-info'  method='POST' >
+<form action='/admin/user'  method='POST' >
 <input type="text" class="form-control my-2" name="user_name" placeholder="Adınız">
 <input type="text" class="form-control my-2" name="user_email" placeholder="Email">
 <input type="text" class="form-control my-2" name="user_phone" placeholder="Əlaqə nömrəsi">
@@ -24,11 +24,11 @@
      </thead>
      <tbody>
       
-        {% for test in test %}
+        {% for Post in test %}
         
         <tr>
-            <td scope="row">{{test.id}}</td>
-            <td> {{test.Adınız}}</td>
+            <td scope="row">{{post.id}}</td>
+            <td> {{post.Adınız}}</td>
             <td>
                 <a href=""> Delete</a>
                 <a href="">Update </a>

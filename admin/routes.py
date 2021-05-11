@@ -13,6 +13,7 @@ def admin_index():
 def admin_user_info():
     test=Post.query.all()
     if request.method=='POST':
+        filename=file.filename
         file==request.files['Adınız']
         file==request.files['Email']
         file==request.files['Əlaqə nömrəsi']
@@ -22,6 +23,13 @@ def admin_user_info():
         file==request.files['google_map']
     return render_template('admin/user.html',test=test)
     
+    test=test(
+          Adınız=request.form['Adınız'],
+          Email=request.form['Email'],
+          Əlaqənömrəsi=request.form['Əlaqə nömrəsi']
+          
+      )
+
     db.session.add(test)
     db.session.commit()
     return redirect('/admin/user')
