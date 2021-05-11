@@ -11,16 +11,18 @@ def admin_index():
 
 @app.route('/admin/user',methods=['GET', 'POST']) 
 def admin_user_info():
-    Posts=usr_info.query.all()
-    if request.method=='usr_info':
-
-        file==request.files['user-name']
-        file==request.files['user-email']
-        file==request.files['user-phone']
-        file==request.files['user-message']
-        file==request.files['user-adress']
-        file==request.files['resume-link']
-        file==request.files['google-map']
-    return render_template('admin/user.html',Posts=usr_info)
-
-  
+    test=Post.query.all()
+    if request.method=='POST':
+        file==request.files['Adınız']
+        file==request.files['Email']
+        file==request.files['Əlaqə nömrəsi']
+        file==request.files['Mesaj buraxın']
+        file==request.files['Ünvan']
+        file==request.files['resume_link']
+        file==request.files['google_map']
+    return render_template('admin/user.html',test=test)
+    
+    db.session.add(test)
+    db.session.commit()
+    return redirect('/admin/user')
+    return render_template('admin/user.html', test=test)

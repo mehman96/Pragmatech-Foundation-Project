@@ -1,6 +1,6 @@
 # model class
 from app import db
-class Post (db.Model):
+class Post(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     user_name=db.Column(db.String(50))
     user_adress=db.Column(db.String(50))
