@@ -2,7 +2,7 @@
 
 {%   block content %}
 <h3 class="my-3" >İstifadəcilər</h3>
-<form action='/admin/user'  method='POST' >
+<form action='/admin'  method='POST' >
 <input type="text" class="form-control my-2" name="user_name" placeholder="Adınız">
 <input type="text" class="form-control my-2" name="user_email" placeholder="Email">
 <input type="text" class="form-control my-2" name="user_phone" placeholder="Əlaqə nömrəsi">
@@ -11,7 +11,7 @@
  <input type="text" class="form-conrol my-2 "  name="resume_link"  placeholder="resume-link">
 <input type="text" class="form-conrol my-2 "  name="google_map"  placeholder="google-map">
 <hr>
-<input type="sumbit" class=" btn btn-primary"  value="Əlavə et">
+<input type="submit" class=" btn btn-primary"  value="Əlavə et">
 </form>
 <hr>
 <h3 class="my-3" >ƏLAVƏ EDİLƏN</h3>
@@ -24,7 +24,7 @@
      </thead>
      <tbody>
       
-        {% for Post in test %}
+        {% for post in user %}
         
         <tr>
             <td scope="row">{{post.id}}</td>

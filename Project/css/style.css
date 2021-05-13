@@ -29,6 +29,11 @@ body{
     transform: translate(0px,44px);
     
 }
+
+.tb-setting{ 
+    scroll-behavior: smooth; 
+}
+
   .tb-setting ul {
     display: flex;
     list-style: none;   
