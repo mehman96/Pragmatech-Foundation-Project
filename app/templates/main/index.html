@@ -7,17 +7,12 @@
 
   <title>Project</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-  <link rel="stylesheet" href="css/grid.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="/static/main/css/grid.css">
+  <link rel="stylesheet" href="/static/main/css/main.css">
+  <link rel="stylesheet" href="/static/main/css/style.css">
+  <link rel="stylesheet" href="/static/main/css/responsive.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/main/css/grid.css">
-<link rel="stylesheet" href="/static/main/css/main.css">
-<link rel="stylesheet" href="/static/main/css/responsive.css">
-<link rel="stylesheet" href="/static/main/css/style.css">
-
 
 </head>
 
@@ -27,9 +22,10 @@
     <section id="tb">
       <div class="tb-continer">
         <div class="tb-continer-logo">
-          <img src="img/logo-light.png" alt="" title="website logo1">
-          <!-- <img src="/Project/img/logo-dark.png" alt="website-logo-2"> -->
-          <!-- js de lazim olacaq  -->
+          <a href="">
+          <img src="/static/main/img/logo-light.png" alt="" title="website logo1">
+          <img src="/static/main/img/logo-dark.png" alt="website-logo-2">
+          </a>
         </div>
         <div class="tb-bar"></div>
         <div class="tb-setting">
@@ -51,7 +47,7 @@
     <section id="nb-continer">
       <div class="nb-bar">
         <div class="nb-photo">
-          <img src="img/fon-photo.jpg" alt="" title="my photo">
+          <img src="/static/main/img/fon-photo.jpg" alt="" title="my photo">
         </div>
         <div class="nb-info">
           <h3>Salam, Mən Mirzəyev Mehman</h3>
@@ -309,7 +305,11 @@
   <!--  my_services section end -->
 
   <!-- pt-portfolio -->
+  
 
+  {% for post in posts %}
+  
+ 
   <section id="pt">
     <div class="pt-contianer">
 
@@ -353,7 +353,7 @@
         <div class="col-4">
 
           <div class="box-2 ">
-            <img src="img/pf(1).jpg  " title="portfolio-photo">
+            <img src="static/uploads/{{post.portfolio_img_url}}  " title="portfolio-photo">
 
             <div class="image">
               <div class="overlay">
@@ -366,7 +366,7 @@
         <div class="col-4">
 
           <div class="box-2 ">
-            <img src="img/pf (2).jpg" title="portfolio-photo">
+            <img src="/static/main/img/pf (2).jpg " title="portfolio-photo">
 
             <div class="image">
               <div class="overlay">
@@ -380,7 +380,7 @@
         <div class="col-4">
 
           <div class="box-2 ">
-            <img src="img/pf (3).jpg" title="portfolio-photo">
+            <img src="/static/main/img/pf (3).jpg" title="portfolio-photo">
 
             <div class="image">
               <div class="overlay">
@@ -399,7 +399,7 @@
         <div class="col-4">
 
           <div class="box-2 ">
-            <img src="img/pf (4).jpg" title="portfolio-photo">
+            <img src="/static/main/img/pf (4).jpg" title="portfolio-photo">
 
             <div class="image">
               <div class="overlay">
@@ -413,7 +413,7 @@
         <div class="col-4">
 
           <div class="box-2 ">
-            <img src="img/pf (5).jpg  " title="portfolio-photo">
+            <img src="/static/main/img/pf (5).jpg  " title="portfolio-photo">
 
             <div class="image">
               <div class="overlay">
@@ -428,7 +428,7 @@
         <div class="col-4">
 
           <div class="box-2 ">
-            <img src="img/pf (6).jpg  " title="portfolio-photo">
+            <img src="/static/main/img/pf (6).jpg  " title="portfolio-photo">
 
             <div class="image">
               <div class="overlay">
@@ -448,6 +448,8 @@
 
 
   </section>
+
+ {% endfor %}
 
   <!-- pt-section end -->
 
@@ -648,7 +650,7 @@
 
           <div class="box-5">
 
-            <img src="img/people-1.jpg" title="">
+            <img src="/static/main/img/people-1.jpg" title="">
             <span class="id-color margin-id">John, Pixar studio</span>
             <p class="h-style-box-5">"Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
               adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore"</p>
@@ -661,7 +663,7 @@
         <div class="col-3">
 
           <div class="box-5">
-            <img src="img/people-2.jpg" title="">
+            <img src="/static/main/img/people-2.jpg" title="">
             <span class="id-color margin-id">Sarah, Microsoft</span>
 
             <p class="h-style-box-5"> "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
@@ -671,7 +673,7 @@
 
         <div class="col-3">
           <div class="box-5">
-            <img src="img/people-3.jpg" title="">
+            <img src="/static/main/img/people-3.jpg" title="">
             <span class="id-color margin-id"> Michael, Apple </span>
             <p class="h-style-box-5"> "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
               adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore"</p>
@@ -792,7 +794,7 @@
         <div class="question-bar">
           <div class="element-box">
 
-            <form action="#">
+            <form action="">
               <div class="element-bar">
                 <input type="text" placeholder=" Adınız" class="p-style-1 ">
               </div>

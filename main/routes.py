@@ -1,10 +1,10 @@
 from app import app
 from app.models import Post
-from flask import render_template,redirect,request
+from flask import render_template,request,redirect
+
+
 
 @app.route('/')
 def index():
-    test=Post.query.all()
-    return render_template('/main/index.html',test=test)
-
-    
+    posts=Post.query.all()
+    return render_template ('main/index.html',posts=posts)

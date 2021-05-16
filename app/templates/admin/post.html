@@ -1,0 +1,47 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<h3 class="my-3"> Add post </h3>
+
+<form action="/admin/post" method='POST' enctype="multipart/form-data">
+<input type="text"  class="form-control my-2" name="portfolio_name"  placeholder="Post name" >
+<input type="text"  class="form-control my-2" name="portfolio_header_title"  placeholder="Post header" >
+<input type="text"  class="form-control my-2" name="portfolio_category_name"  placeholder="Post ct name" >
+<input type="file"  class="form-control my-2" name="portfolio_img_url"  placeholder="Post img" >
+<input type="text"  class="form-control my-2" name="portfolio_add_date"  placeholder="Post date" >
+<input type="submit" class="btn btn-primary" value="Add Post">
+
+</form>
+<hr>
+<h3 class="my-3"> All Post </h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Post Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        
+        <tr>
+            <td scope="row">{{post.id}}</td>
+            <td>{{post.portfolio_name}}</td>
+            <td>{{post.portfolio_header_title}}</td>
+            <td>{{post.portfolio_category_name}}</td>
+            <td>{{post.portfolio_img_url}}</td>
+            <td>{{post.portfolio_add_date}}</td>
+        </tr>
+        <tr>
+            <td scope="row"></td>
+            <td>
+                <a href=""> Delete</a>
+                <a href=""> Update</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

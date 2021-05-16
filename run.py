@@ -1,10 +1,6 @@
-# app-pacakage  2ci obyekt
-# run etmek ucun
-
+from flask import Flask
 from app import app
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     app.run(debug=True)
- 
-from main.routes import*
-from admin.routes import*
