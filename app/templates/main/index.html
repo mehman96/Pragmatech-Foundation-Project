@@ -307,7 +307,7 @@
   <!-- pt-portfolio -->
   
 
-  {% for post in posts %}
+
   
  
   <section id="pt">
@@ -315,31 +315,30 @@
 
       <div class="row">
         <div class="col-12">
+
+          {% for  porthead  in  portheads %}
           <div class="box-header">
-            <span class="id-color"> Portfolio</span>
-            <h3 class="h-style">I Love What I Do</h3>
-
+            <span class="id-color"> {{porthead.portfolio_subheading}}</span>
+            <h3 class="h-style">{{porthead.portfolio_heading}}</h3>
           </div>
-
-
         </div>
-
       </div>
     </div>
+ {% endfor %}
+
 
     <div class="row">
 
       <div class="col-12">
         <div class="box-header-1">
+          
           <ul>
-            <li><a href="#"></a>all projects</li>
-            <li><a href="#"></a> illustration</li>
-            <li><a href="#"></a> mobile</li>
-            <li><a href="#"></a> photography </li>
-            <li><a href="#"></a> website</li>
-
+        {% for header in  headers%}
+        
+        <li><a href=""></a>{{header.portfolio_menu_name}}</li>
+        {% endfor %}
+ 
           </ul>
-
         </div>
 
       </div>
@@ -349,23 +348,25 @@
 
 
     <div class="picture-box">
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <div class="col-4">
-
+          {% for post in posts %}
           <div class="box-2 ">
-            <img src="static/uploads/{{post.portfolio_img_url}}  " title="portfolio-photo">
+            <img src="static/uploads/{{post.project_img}}  " title="portfolio-photo">
 
             <div class="image">
               <div class="overlay">
-                <div class="text">Project Name</div>
+                <div class="text">{{post.project_name}}</div>
               </div>
             </div>
-
           </div>
-        </div>
-        <div class="col-4">
+          {% endfor %}
 
-          <div class="box-2 ">
+         </div>
+
+        <!-- <div class="col-4"> --> 
+
+          <!-- <div class="box-2 ">
             <img src="/static/main/img/pf (2).jpg " title="portfolio-photo">
 
             <div class="image">
@@ -434,9 +435,9 @@
               <div class="overlay">
                 <div class="text">Project Name</div>
               </div>
-            </div>
+            </div> -->
 
-          </div>
+          <!-- </div> -->
         </div>
 
 
@@ -449,7 +450,7 @@
 
   </section>
 
- {% endfor %}
+
 
   <!-- pt-section end -->
 

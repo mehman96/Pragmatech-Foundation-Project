@@ -2,13 +2,9 @@
 
 {% block content %}
 <h3 class="my-3"> Add post </h3>
-
 <form action="/admin/post" method='POST' enctype="multipart/form-data">
-<input type="text"  class="form-control my-2" name="portfolio_name"  placeholder="Post name" >
-<input type="text"  class="form-control my-2" name="portfolio_header_title"  placeholder="Post header" >
-<input type="text"  class="form-control my-2" name="portfolio_category_name"  placeholder="Post ct name" >
-<input type="file"  class="form-control my-2" name="portfolio_img_url"  placeholder="Post img" >
-<input type="text"  class="form-control my-2" name="portfolio_add_date"  placeholder="Post date" >
+<input type="text"  class="form-control my-2" name="project_name"  placeholder="Project name" >
+<input type="file"  class="form-control my-2" name="project_img"  placeholder="Project img" >
 <input type="submit" class="btn btn-primary" value="Add Post">
 
 </form>
@@ -18,7 +14,8 @@
     <thead>
         <tr>
             <th>id</th>
-            <th>Post Name</th>
+            <th>Project Name</th>
+            <th>Project img</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -27,17 +24,12 @@
         
         <tr>
             <td scope="row">{{post.id}}</td>
-            <td>{{post.portfolio_name}}</td>
-            <td>{{post.portfolio_header_title}}</td>
-            <td>{{post.portfolio_category_name}}</td>
-            <td>{{post.portfolio_img_url}}</td>
-            <td>{{post.portfolio_add_date}}</td>
-        </tr>
-        <tr>
-            <td scope="row"></td>
+            <td>{{post.project_name}}</td>
+            <td>{{post.project_img}}</td>
+        
             <td>
-                <a href=""> Delete</a>
-                <a href=""> Update</a>
+                <a href="/admin/postdelete/{{post.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/postupdate/{{post.id}}"> <i class="fas fa-edit"></i></a>
             </td>
         </tr>
 

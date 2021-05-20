@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<h3 class="my-3"> Portfolio menu </h3>
+<form action="/admin/portmenu" method='POST'>
+<input type="text"  class="form-control my-2" name="portfolio_menu_name"value="{{header.portfolio_menu_name}}" placeholder="menu name">
+<input type="submit" class="btn btn-primary" value="menu update">
+
+
+</form>
+<hr>
+<h3 class="my-3"> Menu</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Menu name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for header  in headers %}
+        
+        <tr>
+            <td scope="row">{{header.id}}</td>
+            <td>{{header.portfolio_menu_name}}</td>
+        
+            <td>
+                <a href="/admin/portmenudelete/{{header.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/portmenuupdate/{{header.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
