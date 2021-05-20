@@ -1,0 +1,15 @@
+% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/aboutupdate/{{about.id}}" method='POST'></form>
+<input type="text"  class="form-control my-2" name=" about_subheading_name"  placeholder="subhead name" >
+<input type="text"  class="form-control my-2" name="about_heading_name"  placeholder="head name" >
+<input type="text"  class="form-control my-2" name=" about_desc"  placeholder="portfolio heading" >
+<input type="submit" class="btn btn-primary" value="Add about update">
+
+</form>
+
+
+{% endblock %}
+

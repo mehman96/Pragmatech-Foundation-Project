@@ -11,7 +11,20 @@ def admin_index():
    headers=PostHeading01.query.all()
    return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers)
 
+# about start
 
+
+
+
+
+
+
+
+
+# about end
+
+
+# portfolio start
 @app.route('/admin/post', methods=['GET','POST']) 
 def admin_post():
    posts=Post.query.all()
@@ -79,8 +92,6 @@ def portdelete(id):
    db.session.commit()
    return redirect('/admin/porthead')
 
-
-
 @app.route('/admin/portmenu', methods=['GET','POST']) 
 def admin_portmenu():
    headers=PostHeading01.query.all()
@@ -107,5 +118,6 @@ def portmenuupdate(id):
    if request.method=='POST':
       header.portfolio_menu_name=request.form['portfolio_menu_name'],
       db.session.commit()
-      return redirect('/admin/portmenu')
+      return redirect('/admin/porthead')
    return render_template('admin/portmenuupdate.html',header=header)
+# portfolio end
