@@ -64,24 +64,24 @@
 
   <!-- site-continer start -->
   <section id="site-continer">
+{% for aboutname in aboutnames %}
 
     <div class="my-site">
       <h5>
-        <span>Haqqımda</span>
+        <span>{{aboutname.about_name}}</span>
       </h5>
 
       <h2>
-        Welcome To My Site
+        {{aboutname.about_heading_name}}
       </h2>
     </div>
 
     <div class="about-me">
       <p>
-        I am a website designer from London, with a strong focus in UI/UX design. I love to get new experiences and <br>
-        always learn from my surroundings. I've done more than 285 projects. You can check it through portfolio section
-        <br> on this website. I looking forward to any opportunities and challenges.
+        {{aboutname.about_desc_name}}
       </p>
     </div>
+{% endfor %}
 
     <div class="skill-item">
       <div class="skill-bar">

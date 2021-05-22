@@ -1,15 +1,16 @@
 from app import db
 # about start
 class about_heading (db.Model):
-  id=db.Column(db.Integer,primary_key=True)
-    about_subheading_name=db.Column(db.String(50))
+    id=db.Column(db.Integer,primary_key=True)
+    about_name=db.Column(db.String(50))
+    about_desc_name=db.Column(db.String(50))
     about_heading_name=db.Column(db.String(50))
-    about_desc=db.Column(db.String(50))
+ 
 
 class about_skill_bar (db.Model):
-  id=db.Column(db.Integer,primary_key=True)
-  skill_name=db.Column(db.String(50))
-  skill_persantage=db.Column(db.String(50))
+    id=db.Column(db.Integer,primary_key=True)
+    skill_name=db.Column(db.String(50))
+    skill_persantage=db.Column(db.String(50))
 
 # about end
 

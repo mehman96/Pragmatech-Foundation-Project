@@ -3,9 +3,9 @@
 {% block content %}
 
 <form action="/admin/aboutupdate/{{about.id}}" method='POST'></form>
-<input type="text"  class="form-control my-2" name=" about_subheading_name"  placeholder="subhead name" >
-<input type="text"  class="form-control my-2" name="about_heading_name"  placeholder="head name" >
-<input type="text"  class="form-control my-2" name=" about_desc"  placeholder="portfolio heading" >
+<input type="text"  class="form-control my-2" name=" about_name"  placeholder="subhead name" value="{{aboutname.about_name}}" >
+<input type="text"  class="form-control my-2" name="about_heading_name"  placeholder="head name" value="{{aboutname.about_heading_name}}" >
+<input type="text"  class="form-control my-2" name=" about_desc_name"  placeholder="desc"  value="{{aboutname.about_desc_name}}"     >
 <input type="submit" class="btn btn-primary" value="Add about update">
 
 </form>

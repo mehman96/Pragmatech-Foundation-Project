@@ -9,4 +9,5 @@ def index():
     posts=Post.query.all()
     portheads=PostHeading.query.all()
     headers=PostHeading01.query.all()
-    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers)
+    aboutnames=about_heading.query.all()
+    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers,  aboutnames=aboutnames)

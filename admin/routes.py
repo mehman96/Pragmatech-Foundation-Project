@@ -9,16 +9,41 @@ def admin_index():
    posts=Post.query.all()
    portheads=PostHeading.query.all()
    headers=PostHeading01.query.all()
-   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers)
+   aboutnames=about_heading.query.all()
+   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames)
 
 # about start
+@app.route('/admin/about', methods=['GET','POST']) 
+def admin_about():
+   aboutnames=about_heading.query.all()
+   if request.method=='POST':
+      aboutname=about_heading(
+         about_name=request.form['about_name'],
+         about_desc_name=request.form['about_desc_name'],
+         about_heading_name=request.form['about_heading_name']
+      )     
+      db.session.add(aboutname)
+      db.session.commit()
+      return redirect('/admin/about')
+   return render_template('admin/about.html',aboutnames=aboutnames)
+   
+@app.route("/admin/aboutupdate/<id>",methods=['GET','POST'])  
+def aboutupdate(id):
+   aboutname=about_heading.query.get(id)
+   if request.method=='POST':
+      about_name=request.form['about_name']
+      about_desc_name=request.form['about_desc_name']
+      about_heading_name=request.form['about_heading_name']
+      db.session.commit()
+      return redirect('/admin/about')
+   return render_template('admin/aboutupdate.html',aboutname=aboutname)
 
-
-
-
-
-
-
+@app.route("/admin/aboutdelete/<id>")
+def aboutdelete(id):
+   aboutname=about_heading.query.get(id)
+   db.session.delete(aboutname)
+   db.session.commit()
+   return redirect('/admin/about')
 
 
 # about end
