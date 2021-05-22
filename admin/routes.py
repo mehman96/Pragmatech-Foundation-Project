@@ -9,45 +9,47 @@ def admin_index():
    posts=Post.query.all()
    portheads=PostHeading.query.all()
    headers=PostHeading01.query.all()
-   aboutnames=about_heading.query.all()
+   aboutnames=AboutHeading.query.all()
    return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames)
 
 # about start
-@app.route('/admin/about', methods=['GET','POST']) 
-def admin_about():
-   aboutnames=about_heading.query.all()
+@app.route('/admin/aboutname', methods=['GET','POST']) 
+def adminAAbout():
+   aboutnames=AboutHeading.query.all()
    if request.method=='POST':
-      aboutname=about_heading(
-         about_name=request.form['about_name'],
+      aboutname=AboutHeading(
+         ab_name=request.form['ab_name'],
          about_desc_name=request.form['about_desc_name'],
          about_heading_name=request.form['about_heading_name']
       )     
       db.session.add(aboutname)
       db.session.commit()
-      return redirect('/admin/about')
-   return render_template('admin/about.html',aboutnames=aboutnames)
+      return redirect('/admin/aboutname')
+   return render_template('admin/aboutname.html',aboutnames=aboutnames)
    
-@app.route("/admin/aboutupdate/<id>",methods=['GET','POST'])  
-def aboutupdate(id):
-   aboutname=about_heading.query.get(id)
-   if request.method=='POST':
-      about_name=request.form['about_name']
-      about_desc_name=request.form['about_desc_name']
-      about_heading_name=request.form['about_heading_name']
-      db.session.commit()
-      return redirect('/admin/about')
-   return render_template('admin/aboutupdate.html',aboutname=aboutname)
-
 @app.route("/admin/aboutdelete/<id>")
 def aboutdelete(id):
-   aboutname=about_heading.query.get(id)
+   aboutname=AboutHeading.query.get(id)
    db.session.delete(aboutname)
    db.session.commit()
-   return redirect('/admin/about')
+   return redirect('/admin/aboutname')
+
+
+@app.route("/admin/aboutupdate/<id>" , methods=['GET','POST'])  
+def aboutupdate(id):
+   aboutname=AboutHeading.query.get(id)
+   if request.method=='POST':
+      aboutname.ab_name=request.form['ab_name']
+      aboutname.about_heading_name=request.form['about_heading_name']
+      aboutname.about_desc_name=request.form['about_desc_name']
+      db.session.commit()
+      return redirect('/admin/aboutname')
+   return render_template('admin/aboutupdate.html',aboutname=aboutname)
+
+
 
 
 # about end
-
 
 # portfolio start
 @app.route('/admin/post', methods=['GET','POST']) 
