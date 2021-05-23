@@ -10,11 +10,12 @@ def admin_index():
    portheads=PostHeading.query.all()
    headers=PostHeading01.query.all()
    aboutnames=AboutHeading.query.all()
-   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames)
+   skills=SkillBar.query.all()
+   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames,skills=skills)
 
 # about start
 @app.route('/admin/aboutname', methods=['GET','POST']) 
-def adminAAbout():
+def adminAbout():
    aboutnames=AboutHeading.query.all()
    if request.method=='POST':
       aboutname=AboutHeading(
@@ -46,10 +47,34 @@ def aboutupdate(id):
       return redirect('/admin/aboutname')
    return render_template('admin/aboutupdate.html',aboutname=aboutname)
 
-
-
-
 # about end
+
+# skill-bar start
+@app.route('/admin/skill', methods=['GET','POST']) 
+def SkillAbout():
+   skills=SkillBar.query.all()
+   if request.method=='POST':
+      skill=SkillBar(
+      skill_name=request.form['skill_name'],
+      skill_persantage=request.form['skill_persantage']
+      )     
+      db.session.add(skill)
+      db.session.commit()
+      return redirect('/admin/skill')
+   return render_template('admin/skill.html',skills=skills)
+   
+
+
+
+
+
+
+
+# skill-bar end
+
+
+
+
 
 # portfolio start
 @app.route('/admin/post', methods=['GET','POST']) 

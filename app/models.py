@@ -7,7 +7,7 @@ class AboutHeading(db.Model):
     about_heading_name=db.Column(db.String(50))
 
 
-class about_skill_bar (db.Model):
+class SkillBar(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     skill_name=db.Column(db.String(50))
     skill_persantage=db.Column(db.String(50))

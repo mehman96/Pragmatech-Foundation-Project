@@ -86,80 +86,22 @@
       <div class="skill-bar">
         <div class="row">
           <div class="col-4">
-            <div class="bar">
+            <div class="bar">   
+              {% for skill in skills %}  
               <div class="info">
-                <span> Design</span>
-                <span class="span-style">80%</span>
+              <span>{{skill.skill_name}}</span>
+              <span class="span-style">{{skill.skill_persantage}}</span>
               </div>
               <div class="progress-line Design"><span></span></div>
             </div>
-          </div>
-
-          <div class="col-4">
-            <div class="bar">
-              <div class="info">
-                <span> Marketing </span>
-                <span class="span-style ">70%</span>
-              </div>
-              <div class="progress-line Branding"><span></span></div>
-            </div>
-          </div>
-
-          <div class="col-4">
-            <div class="bar">
-              <div class="info">
-                <span> Photography</span>
-                <span class="span-style ">70%</span>
-              </div>
-              <div class="progress-line  Marketing"><span></span></div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-        <div class="row">
-          <div class="col-4">
-            <div class="bar">
-              <div class="info">
-                <span> Branding</span>
-                <span class="span-style">90%</span>
-              </div>
-              <div class="progress-line Devolopment"><span></span></div>
-            </div>
-          </div>
-
-          <div class="col-4">
-            <div class="bar">
-              <div class="info">
-                <span> Devolopment</span>
-                <span class="span-style">90%</span>
-              </div>
-              <div class="progress-line Photography "><span></span></div>
-            </div>
-          </div>
-
-          <div class="col-4">
-            <div class="bar">
-              <div class="info">
-                <span> SEO</span>
-                <span class="span-style">90%</span>
-              </div>
-              <div class="progress-line SEO "><span></span></div>
-            </div>
-          </div>
-        </div>
-
-
+          </div> 
       </div>
     </div>
-
-
-
-    <!-- site-continer end -->
-
+    {% endfor %} 
   </section>
+
+
+ <!-- site-continer end -->
 
   <!-- my_services section start -->
 

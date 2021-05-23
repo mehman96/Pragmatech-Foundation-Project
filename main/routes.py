@@ -10,4 +10,5 @@ def index():
     portheads=PostHeading.query.all()
     headers=PostHeading01.query.all()
     aboutnames=AboutHeading.query.all()
-    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames)
+    skills=SkillBar.query.all()
+    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames,skills=skills)
