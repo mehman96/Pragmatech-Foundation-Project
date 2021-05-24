@@ -11,6 +11,6 @@ def index():
     headers=PostHeading01.query.all()
     aboutnames=AboutHeading.query.all()
     skills=SkillBar.query.all()
-    servicess=ServicesHeading.query.all()
+    services=ServicesHeading.query.all()
     serviceboxs=ServicesBox.query.all()
-    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames,skills=skills, servicess=servicess,serviceboxs=serviceboxs)
+    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames,skills=skills, services=services,serviceboxs=serviceboxs)

@@ -117,9 +117,9 @@
 
     <div class="overline-2">
       <div class="row">
-
+  {% for service  in services %}
         <div class="box-head-contanier">
-          {% for service  in services %}
+        
           <div class="box-header">
            <span class="id-color  box-word-style ">{{service.services_subheading}}</span>
             <h1 class="h-style box-word-style-1 ">{{service.services_heading}}</h1>
@@ -137,12 +137,10 @@
           <div class="box">
             {% for servicebox in serviceboxs %}
             <div class="tb-hover">
-
-              <a class="icon-design">{{servicebox.services_icon}} </a>
-
+              <a class="icon-design"><i class="{{servicebox.services_icon}}"></i></a>
               <h3> {{servicebox.services_title_heading}}</h3>
               <p>
-              {servicebox.services_title}}
+              {{servicebox.services_title}}
               </p>
 
             </div>
