@@ -11,7 +11,9 @@ def admin_index():
    headers=PostHeading01.query.all()
    aboutnames=AboutHeading.query.all()
    skills=SkillBar.query.all()
-   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames,skills=skills)
+   servicess=ServicesHeading.query.all()
+   serviceboxs=ServicesBox.query.all()
+   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames,skills=skills,servicess=servicess,serviceboxs=serviceboxs)
 
 # about start
 @app.route('/admin/aboutname', methods=['GET','POST']) 
@@ -49,7 +51,8 @@ def aboutupdate(id):
 
 # about end
 
-# skill-bar start
+# skill-bar start  
+# add
 @app.route('/admin/skill', methods=['GET','POST']) 
 def SkillAbout():
    skills=SkillBar.query.all()
@@ -62,19 +65,104 @@ def SkillAbout():
       db.session.commit()
       return redirect('/admin/skill')
    return render_template('admin/skill.html',skills=skills)
-   
+   #
 
+   # delete
+@app.route("/admin/skilldelete/<id>")
+def skilldelete(id):
+   skill=SkillBar.query.get(id)
+   db.session.delete(skill)
+   db.session.commit()
+   return redirect('/admin/skill')
+ 
+   #
 
+# update
 
+@app.route("/admin/skillupdate/<id>" , methods=['GET','POST'])  
+def Skillupdate(id):
+   skill=SkillBar.query.get(id)
+   if request.method=='POST':
+      skill.skill_name=request.form['skill_name']
+      skill.skill_persantage=request.form['skill_persantage']
+      db.session.commit()
+      return redirect('/admin/skill')
+   return render_template('admin/skillupdate.html',skill=skill)
 
-
-
+# 
 
 # skill-bar end
 
 
+# servies start 
+
+# add
+@app.route('/admin/serviceshead', methods=['GET','POST']) 
+def ServicesHead():
+   servicess=ServicesHeading.query.all()
+   if request.method=='POST':
+      services=ServicesHeading(
+      services_subheading=request.form['services_subheading'],
+      services_heading=request.form['services_heading']
+      )     
+      db.session.add(services)
+      db.session.commit()
+      return redirect('/admin/serviceshead')
+   return render_template('admin/serviceshead.html',servicess=servicess)
+
+# 
+
+# delete
+@app.route("/admin/servicesheaddelete/<id>")
+def Servicesdelete(id):
+   service=ServicesHeading.query.get(id)
+   db.session.delete(service)
+   db.session.commit()
+   return redirect('/admin/serviceshead')
+ 
+# 
+
+# update
+@app.route("/admin/servicesheadupdate/<id>" , methods=['GET','POST'])  
+def Servicesupdate(id):
+   service=ServicesHeading.query.get(id)
+   if request.method=='POST':
+      service.services_subheading=request.form['services_subheading']
+      service.services_heading=request.form['services_heading']
+      db.session.commit()
+      return redirect('/admin/serviceshead')
+   return render_template('admin/servicesheadupdate.html',service=service)
+
+# 
+
+# services box
+# add
+# @app.route('/admin/servicesbox', methods=['GET','POST']) 
+# def servicesbox():
+#    servicebox=ServicesBox.query.all()
+#    if request.method=='POST':
+#       serviceboxs= ServicesBox(
+#          services_icon=request.form['services_subheading'],
+#          services_title_heading=request.form['services_subheading'],
+#          services_title=request.form['services_subheading']
+#       )     
+#       db.session.add(serviceboxs)
+#       db.session.commit()
+#       return redirect('/admin/servicesbox')
+#    return render_template('admin/servicesbox.html',servicebox=servicebox)
 
 
+
+
+
+# 
+
+
+
+
+
+
+# services end
 
 # portfolio start
 @app.route('/admin/post', methods=['GET','POST']) 

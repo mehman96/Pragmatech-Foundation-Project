@@ -4,8 +4,8 @@
 
 <h3>Add skill-bar</h3>
 <form action="/admin/skill" method='POST'>
-    <input type="text" class="form-control my-2" name="skill_name" placeholder="skill name">
-    <input type="text" class="form-control my-2" name="skill_persantage" placeholder="persantage">
+    <input type="text" class="form-control my-2"name="skill_name"placeholder="skill name">
+    <input type="text" class="form-control my-2"name="skill_persantage"placeholder="persantage">
     <input type="submit" class="btn btn-primary" value="Add skill">
 
 </form>
@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for skill in skils %}
+        {% for skill in skills %}
 
         <tr>
             <td scope="row">{{skill.id}}</td>

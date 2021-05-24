@@ -6,7 +6,6 @@ class AboutHeading(db.Model):
     about_desc_name=db.Column(db.String(50))
     about_heading_name=db.Column(db.String(50))
 
-
 class SkillBar(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     skill_name=db.Column(db.String(50))
@@ -14,6 +13,20 @@ class SkillBar(db.Model):
 
 # about end
 
+# my_services  start
+class ServicesHeading(db.Model):
+        id=db.Column(db.Integer,primary_key=True)
+        services_subheading=db.Column(db.String(50))
+        services_heading=db.Column(db.String(50))
+        
+
+class ServicesBox(db.Model):
+        id=db.Column(db.Integer,primary_key=True)
+        services_icon=db.Column(db.String(50))
+        services_title_heading=db.Column(db.String(50))
+        services_title=db.Column(db.String(50))
+
+# my_services end
 
 
 # portfolio start
@@ -34,5 +47,6 @@ class Post (db.Model):
 
  # portfolio end
 
-
+# portfolio end
     
+

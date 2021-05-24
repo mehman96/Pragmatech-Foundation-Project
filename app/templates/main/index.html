@@ -82,22 +82,29 @@
     </div>
     {% endfor %}
 
+    
     <div class="skill-item">
       <div class="skill-bar">
         <div class="row">
           <div class="col-4">
-            <div class="bar">   
-              {% for skill in skills %}  
+            {% for skill in skills %}
+            <div class="bar">
               <div class="info">
-              <span>{{skill.skill_name}}</span>
-              <span class="span-style">{{skill.skill_persantage}}</span>
+                <span>{{skill.skill_name}}</span>
+                <span class="span-style">{{skill.skill_persantage}}</span>
               </div>
               <div class="progress-line Design"><span></span></div>
             </div>
-          </div> 
+          </div>
+   {% endfor %}
+
+
+
+
       </div>
     </div>
-    {% endfor %} 
+
+ 
   </section>
 
 
@@ -105,37 +112,37 @@
 
   <!-- my_services section start -->
 
+
   <section id="my_services">
 
     <div class="overline-2">
       <div class="row">
 
         <div class="box-head-contanier">
-
+          {% for service  in services %}
           <div class="box-header">
-            <span class="id-color  box-word-style "> My Services</span>
-            <h1 class="h-style box-word-style-1 ">I'm Available For Hire</h1>
+           <span class="id-color  box-word-style ">{{service.services_subheading}}</span>
+            <h1 class="h-style box-word-style-1 ">{{service.services_heading}}</h1>
           </div>
 
         </div>
 
       </div>
-
+{% endfor %}
 
       <div class="row-my_services ">
 
 
         <div class=" box-contanier">
           <div class="box">
-
+            {% for servicebox in serviceboxs %}
             <div class="tb-hover">
 
-              <a class="icon-design"> <i class="far fa-lightbulb"></i></a>
+              <a class="icon-design">{{servicebox.services_icon}} </a>
 
-              <h3> Design </h3>
+              <h3> {{servicebox.services_title_heading}}</h3>
               <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem.
+              {servicebox.services_title}}
               </p>
 
             </div>
@@ -143,89 +150,8 @@
           </div>
 
         </div>
-
-        <div class="box-contanier ">
-
-          <div class="box">
-
-            <div class="tb-hover">
-
-              <a class="icon-design"><i class="far fa-chart-bar"></i></a>
-
-
-              <h3>Marketing</h3>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem.
-              </p>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="box-contanier">
-
-          <div class="box">
-
-            <div class="tb-hover">
-              <a class="icon-design"><i class="fas fa-camera"></i></a>
-              <h3>Photography</h3>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="my_services_section">
-        <div class="box-contanier">
-
-          <div class="box">
-
-            <div class="tb-hover">
-              <a class="icon-design"><i class="fas fa-camera"></i></a>
-              <h3>Photography</h3>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="box-contanier">
-
-          <div class="box">
-
-            <div class="tb-hover">
-              <a class="icon-design"><i class="fas fa-camera"></i></a>
-              <h3>Photography</h3>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="box-contanier">
-
-          <div class="box">
-
-            <div class="tb-hover">
-              <a class="icon-design"><i class="fas fa-camera"></i></a>
-              <h3>Photography</h3>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
+        {% endfor %}
+       </section>
 
   <div class="pagination">
     <div class="pagination-item">
@@ -236,8 +162,6 @@
     </div>
   </div>
   </div>
-
-
 
 
 
