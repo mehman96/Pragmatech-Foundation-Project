@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/feedbackupdate/{{test.id}}" method='POST'enctype="multipart/form-data">
+<input type="file" class="form-control my-2" name="commenter_img" placeholder="img" value="{{commenter_img}}">
+<input type="text" class="form-control my-2" name="commenter_name" placeholder="name"value="{{commenter_name}}">
+<input type="text" class="form-control my-2" name="commenter_title" placeholder="title"value="{{commenter_title}}">
+<input type="submit" class="btn btn-primary" value="feedback  update">
+
+</form>
+
+
+{% endblock %}

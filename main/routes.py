@@ -13,4 +13,7 @@ def index():
     skills=SkillBar.query.all()
     services=ServicesHeading.query.all()
     serviceboxs=ServicesBox.query.all()
-    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames,skills=skills, services=services,serviceboxs=serviceboxs)
+    descs= Experience.query.all()
+    feeds=FeedbackHeading.query.all()
+    tests=Feedback.query.all()
+    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames,skills=skills, services=services,serviceboxs=serviceboxs,descs=descs, feeds=feeds,tests=tests)

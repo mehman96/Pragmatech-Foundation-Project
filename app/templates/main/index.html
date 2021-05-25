@@ -227,90 +227,9 @@
 
         </div>
 
-        <!-- <div class="col-4"> -->
-
-        <!-- <div class="box-2 ">
-            <img src="/static/main/img/pf (2).jpg " title="portfolio-photo">
-
-            <div class="image">
-              <div class="overlay">
-                <div class="text">Project Name</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-4">
-
-          <div class="box-2 ">
-            <img src="/static/main/img/pf (3).jpg" title="portfolio-photo">
-
-            <div class="image">
-              <div class="overlay">
-                <div class="text">Project Name</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-
-
-
-
-      <div class="row">
-
-        <div class="col-4">
-
-          <div class="box-2 ">
-            <img src="/static/main/img/pf (4).jpg" title="portfolio-photo">
-
-            <div class="image">
-              <div class="overlay">
-                <div class="text">Project Name</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-4">
-
-          <div class="box-2 ">
-            <img src="/static/main/img/pf (5).jpg  " title="portfolio-photo">
-
-            <div class="image">
-              <div class="overlay">
-                <div class="text">Project Name</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="col-4">
-
-          <div class="box-2 ">
-            <img src="/static/main/img/pf (6).jpg  " title="portfolio-photo">
-
-            <div class="image">
-              <div class="overlay">
-                <div class="text">Project Name</div>
-              </div>
-            </div> -->
-
-        <!-- </div> -->
-      </div>
-
-
     </div>
-
-
     </div>
-
-
-
   </section>
 
 
@@ -340,17 +259,14 @@
 
         <div class="col-12">
 
+{% for desc in descs %}
+
+
           <div class="box-3">
-
-            <span class="date">2014 - now</span>
-            <span class="date">2014</span>
-
-
+            <span class="date">{{desc.start_date}}</span>
+            <span class="date">{{desc.end_date}}</span>
           </div>
-
         </div>
-
-
       </div>
 
 
@@ -360,45 +276,10 @@
 
           <div class="box-3">
 
-            <h5 class="text-name"> Fultime Freelancer</h5>
+            <h5 class="text-name">{{desc.title_header}} </h5>
 
-            <h5 class="text-name"> Specialize App Design, Harvard University</h5>
+            <!-- <h5 class="text-name"> Specialize App Design, Harvard University</h5> -->
 
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="row">
-
-        <div class="col-12">
-
-          <div class="box-3">
-
-            <p class="text-size">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br>
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-              beatae.</p>
-            <p class="text-size">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br>
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-              beatae.</p>
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="row">
-
-        <div class="col-12">
-
-          <div class="box-3">
-
-            <span class="date">2010-2014</span>
-            <span class="date"> 2010</span>
           </div>
 
         </div>
@@ -410,78 +291,17 @@
         <div class="col-12">
 
           <div class="box-3">
-            <h5 class="text-name">Creative Director at Pixar Studio</h5>
-            <h5 class="text-name">Master of Design, University of California</h5>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-12">
-
-          <div class="box-3">
-            <p class="text-size">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br>
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+            <p class="text-size">{{desc.desc}}<br>
             </p>
-            <p class="text-size">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br>
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
-            </p>
+            <!-- <p class="text-size">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br> -->
+              <!-- doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. -->
+            <!-- </p> -->
           </div>
 
         </div>
 
       </div>
-
-      <div class="row">
-
-        <div class="col-12">
-
-          <div class="box-3">
-            <span class="date">2006 - 2010</span>
-            <span class="date"> 2006 </span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="row">
-
-        <div class="col-12">
-
-          <div class="box-3">
-            <h3 class="text-name">Web Designer at Microsoft </h3>
-            <h3 class="text-name"> Bachelor of Arts, Standford University</h3>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-12">
-
-          <div class="box-3">
-            <p class="text-size">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br>
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
-            </p>
-            <p class="text-size">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br>
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
+{% endfor %}
 
     <!-- education section end -->
 
@@ -490,6 +310,7 @@
 
   <!-- testimonials- section start -->
 
+
   <section id="testimonials">
 
     <div class="test-contanier">
@@ -497,53 +318,37 @@
       <div class="row">
 
         <div class="col-12">
+ {% for feed in feeds %}
+ 
 
           <div class="box-4">
-            <span class="id-color">Testimonial</span>
-            <h2 class="h-style"> What They Say</h2>
+            <span class="id-color">{{feed.testi_subheading}}</span>
+            <h2 class="h-style">{{feed.testi_heading}} </h2>
           </div>
 
         </div>
 
       </div>
+{% endfor %}
 
-
-      <div class="row-1">
+      <div class="row">
 
         <div class="col-3">
 
           <div class="box-5">
+            {% for test in tests %}
+            
+           
 
-            <img src="/static/main/img/people-1.jpg" title="">
-            <span class="id-color margin-id">John, Pixar studio</span>
-            <p class="h-style-box-5">"Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-              adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore"</p>
+            <img src="static/uploads {{test.commenter_img}} "title="" >
+            <span class="id-color margin-id">{{test.commenter_name}}</span>
+            <p class="h-style-box-5">{{test.commenter_title}}</p>
 
           </div>
 
         </div>
 
-
-        <div class="col-3">
-
-          <div class="box-5">
-            <img src="/static/main/img/people-2.jpg" title="">
-            <span class="id-color margin-id">Sarah, Microsoft</span>
-
-            <p class="h-style-box-5"> "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-              adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore"</p>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="box-5">
-            <img src="/static/main/img/people-3.jpg" title="">
-            <span class="id-color margin-id"> Michael, Apple </span>
-            <p class="h-style-box-5"> "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-              adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore"</p>
-          </div>
-        </div>
-      </div>
+  {% endfor %}
 
       <div class="col-12">
         <div class="pagination-1">
@@ -758,20 +563,18 @@
   <section id="end-contanier">
 
     <div class="end-bar">
+      {% for icon in icons %}
+      
+     
       <div class="end-bar-1">
-        <a href="#"><span class="icon-detail"><i class="fab fa-facebook-f"></i></span></a>
-        <a href="#"><span class="icon-detail"><i class="fab fa-twitter"></i></span></a>
-        <a href="#"><span class="icon-detail icon-detail-1"><i class="fa fa-rss fa-lg"></i></span></a>
-        <a href="#"><span class="icon-detail"><i class="fab fa-google-plus"></i></span></a>
-        <a href="#"><span class="icon-detail"><i class="fab fa-skype"></i></span></a>
-        <a href="#"><span class="icon-detail"><i class="fab fa-dribbble"></i></span< /a>
+        <a href="#"><span class="icon-detail"><i class="{{icon.social_icon}}"></i></span></a>
       </div>
-    </div>
+
     <div class="p-end">
       <a href="#"></a>
       <p class="p-end-style">© Copyright 2019 - Profession by Designesia</p>
     </div>
-
+ {% endfor %}
   </section>
 
 

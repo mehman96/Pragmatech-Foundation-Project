@@ -13,7 +13,10 @@ def admin_index():
    skills=SkillBar.query.all()
    services=ServicesHeading.query.all()
    serviceboxs=ServicesBox.query.all()
-   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames,skills=skills,services=services,serviceboxs=serviceboxs)
+   descs= Experience.query.all()
+   feeds=FeedbackHeading.query.all()
+   tests=Feedback.query.all()
+   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames,skills=skills,services=services,serviceboxs=serviceboxs,descs=descs, feeds= feeds,tests=tests)
 
 # about start
 @app.route('/admin/aboutname', methods=['GET','POST']) 
@@ -142,9 +145,9 @@ def servicesbox():
    serviceboxs=ServicesBox.query.all()
    if request.method=='POST':
       servicebox=ServicesBox(
-         # services_icon=request.form['services_icon'],
+         services_icon=request.form['services_icon'],
          services_title_heading=request.form['services_title_heading'],
-         services_title=request.form[' services_title']
+         services_title=request.form['services_title']
       )     
       db.session.add(servicebox)
       db.session.commit()
@@ -168,20 +171,14 @@ def Servicesboxdelete(id):
 def Servicesboxupdate(id):
    servicebox=ServicesBox.query.get(id)
    if request.method=='POST':
-         # servicebox.services_icon=request.form['services_icon']
+         servicebox.services_icon=request.form['services_icon']
          servicebox.services_title_heading=request.form['services_title_heading']
-         servicebox.services_title=request.form[' services_title']
+         servicebox.services_title=request.form['services_title']
          db.session.commit()
          return redirect('/admin/servicesbox')
    return render_template('admin/servicesboxupdate.html',servicebox=servicebox)
 
 # 
-
-
-
-
-
-
 
 # services end
 
@@ -282,3 +279,174 @@ def portmenuupdate(id):
       return redirect('/admin/porthead')
    return render_template('admin/portmenuupdate.html',header=header)
 # portfolio end
+
+# education start
+# add
+@app.route('/admin/experience', methods=['GET','POST']) 
+def experince():
+   descs= Experience.query.all()
+   if request.method=='POST':
+      desc=Experience(
+         start_date=request.form['start_date'],
+         end_date=request.form['end_date'],
+         title_header=request.form['title_header'],
+         desc=request.form['desc']
+      )     
+      db.session.add(desc)
+      db.session.commit()
+      return redirect('/admin/experience')
+   return render_template('admin/experience.html',descs=descs)
+
+# 
+
+# delete
+@app.route("/admin/experincedelete/<id>")
+def Experincedelete(id):
+   desc= Experience.query.get(id)
+   db.session.delete(desc)
+   db.session.commit()
+   return redirect('/admin/experience')
+ 
+# 
+
+# update
+@app.route("/admin/experienceupdate/<id>" , methods=['GET','POST'])  
+def Experinceupdate(id):
+   desc= Experience.query.get(id)
+   if request.method=='POST':
+         desc.start_date=request.form['start_date']
+         desc.end_date=request.form['end_date']
+         desc.title_header=request.form['title_header']
+         desc.desc=request.form['desc']
+
+         db.session.commit()
+         return redirect('/admin/experience')
+   return render_template('admin/experienceupdate.html',desc=desc)
+
+# 
+
+
+# education end
+
+
+# testimionals start
+# add
+@app.route('/admin/feedbackheading', methods=['GET','POST']) 
+def feedbackheading():
+   feeds=FeedbackHeading.query.all()
+   if request.method=='POST':
+      feed=FeedbackHeading(
+         testi_subheading=request.form['testi_subheading'],
+         testi_heading=request.form['testi_heading']
+      
+      )     
+      db.session.add(feed)
+      db.session.commit()
+      return redirect('/admin/feedbackheading')
+   return render_template('admin/feedbackheading.html',feeds=feeds)
+
+# 
+
+
+# delete
+@app.route("/admin/feedbackheadingdelete/<id>")
+def fedbackheadindelete(id):
+   feed=FeedbackHeading.query.get(id)
+   db.session.delete(feed)
+   db.session.commit()
+   return redirect('/admin/feedbackheading')
+ 
+# 
+
+@app.route("/admin/feedbackheadingupdate/<id>" , methods=['GET','POST'])  
+def feedbackheadingupdate(id):
+   feed=FeedbackHeading.query.get(id)
+   if request.method=='POST':
+         feed.testi_subheading=request.form['testi_subheading']
+         feed.testi_heading=request.form['testi_heading']
+         db.session.commit()
+         return redirect('/admin/feedbackheading')
+   return render_template('admin/feedbackheadingupdate.html',feed=feed)
+# 
+
+# Feedback start
+# add
+@app.route('/admin/feedback', methods=['GET','POST']) 
+def feedback():
+   tests=Feedback.query.all()
+   if request.method=='POST':
+      file=request.files['commenter_img']
+      filename=file.filename
+      file.save(os.path.join ('app/static/uploads/',filename))
+      test=Feedback(
+         commenter_name=request.form['commenter_name'],
+         commenter_title=request.form['commenter_title'],
+         commenter_img=filename
+
+      )     
+      db.session.add(test)
+      db.session.commit()
+      return redirect('/admin/feedback')
+   return render_template('admin/feedback.html',tests=tests)
+
+#delete 
+
+@app.route("/admin/feedbackdelete/<id>")
+def feedbackdelete(id):
+   test=Feedback.query.get(id)
+   db.session.delete(test)
+   db.session.commit()
+   return redirect('/admin/feedback')
+
+# 
+
+# update
+
+@app.route("/admin/feedbackupdate/<id>" , methods=['GET','POST']) 
+def feedbackupdate(id):
+   test=Feedback.query.get(id)
+   if request.method=='POST':
+      file=request.files['commenter_img']
+      filename=file.filename
+      file.save(os.path.join ('app/static/uploads/',filename))
+      test.commenter_name=request.form['commenter_name']
+      test.commenter_title=request.form['commenter_title']
+      test.commenter_img=filename
+      db.session.commit()
+      return redirect('/admin/test')
+   return render_template('admin/feedbackupdate.html',test=test)
+
+# 
+
+
+
+# Feedback end
+
+
+# testimionals end
+
+
+
+
+
+# contact start
+# contact end
+
+
+# social-icon start
+
+
+
+
+
+
+
+# social-icon end
+
+
+
+
+
+
+
+
