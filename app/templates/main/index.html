@@ -441,10 +441,12 @@
       <div class="row">
 
         <div class="col-12">
+{% for contact  in contacts %}
+
 
           <div class="box-4">
-            <span class="id-color">Have Question?</span>
-            <h2 class="h-style">Contact Me Now</h2>
+            <span class="id-color">{{contact.contact_subheading_name}}</span>
+            <h2 class="h-style">{{contact.contact_heading_name}}</h2>
           </div>
 
         </div>
@@ -454,7 +456,7 @@
 
     </div>
 
-
+{% endfor %}
 
     <div class="row">
 
@@ -500,45 +502,19 @@
       <div class="col-6">
 
         <div class="info-box">
+{% for info in infos %}
+
 
           <div class="info-bar">
 
             <span class="icon-style">
-              <i class="fas fa-map-marker-alt"></i>
-              <p class="p-style">100 Mainstreet Center, Sydney</p>
+              <i class="{{info.contact_icon}}"></i>
+              <p class="p-style">{{info.contact_desc}}</p>
 
             </span>
           </div>
 
-          <div class="info-bar-1">
-
-            <span class="icon-style">
-
-              <i class="fas fa-phone-alt"></i>
-              <p class="p-style">
-                (+994) 55 400 95 65 </p>
-            </span>
-          </div>
-
-
-          <div class="info-bar-2">
-            <span class="icon-style">
-
-              <i class="far fa-envelope"></i>
-              <p class="p-style">mirzeyevmehman2002@gmail.com</p>
-            </span>
-
-          </div>
-
-          <div class="info-bar-3">
-
-            <span class="icon-style">
-              <i class="fas fa-file-pdf"></i>
-              <p class="p-style">Download Resume</p>
-            </span>
-
-          </div>
-
+{% endfor %}
           <div class="row">
 
             <div class="col-6">
