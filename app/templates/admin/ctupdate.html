@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<form action="/admin/ctupdate/{{table.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="contact_icon" placeholder="icon" value="{{table.contact_icon}}">
+<input type="text" class="form-control my-2" name="contact_desc" placeholder="desc"value="{{table.contact_desc}}">
+<input type="text" class="form-control my-2" name="contact_link" placeholder="desc"value="{{table.contact_link}}">
+<input type="submit" class="btn btn-primary" value="ct update">
+
+</form>
+
+
+{% endblock %}

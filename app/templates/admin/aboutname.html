@@ -4,7 +4,6 @@
 
 <h3>Add about heading</h3>
 <form action="/admin/aboutname" method='POST'>
-    <input type="text" class="form-control my-2" name="ab_name" placeholder="subhead name">
     <input type="text" class="form-control my-2" name="about_heading_name" placeholder="head name">
     <input type="text" class="form-control my-2" name="about_desc_name" placeholder="desc">
     <input type="submit" class="btn btn-primary" value="Add about heading">
@@ -17,8 +16,8 @@
         <tr>
             <th>id</th>
             <th>sub heading</th>
-            <th>head name</th>
-            <th>desc</th>
+            <th>heading</th>
+            <th></th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -27,7 +26,6 @@
 
         <tr>
             <td scope="row">{{aboutname.id}}</td>
-            <td>{{aboutname.ab_name}}</td>
             <td>{{aboutname.about_heading_name}}</td>
             <td>{{aboutname.about_desc_name}}</td>
 

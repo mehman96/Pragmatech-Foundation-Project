@@ -44,8 +44,64 @@ class Post (db.Model):
     id=db.Column(db.Integer,primary_key=True)
     project_name=db.Column(db.String(50))
     project_img=db.Column(db.String(50))
+    project_header=db.Column(db.String(50))
+
+
+class Postjs(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    project_close_img=db.Column(db.String)
+    project_name_js=db.Column(db.String)
+    project_header_js=db.Column(db.String)
+    project_img_js=db.Column(db.String)
+    project_desc_js=db.Column(db.String)
+    project_client=db.Column(db.String)
+    project_cat=db.Column(db.String)
+    project_cat_name=db.Column(db.String)
+    project_client_name=db.Column(db.String)
+    close_icon=db.Column(db.String)
+    close_icon_name=db.Column(db.String)
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  # portfolio end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # portfolio end
     
@@ -82,6 +138,9 @@ class Feedback (db.Model):
     commenter_img =db.Column(db.String(50))
     commenter_name=db.Column(db.String(50))
     commenter_title=db.Column(db.String(50))
+    commenter_social_media=db.Column(db.String(50))
+    commenter_desc=db.Column(db.String(50))
+
    
 # testimionals end
 
@@ -98,6 +157,7 @@ class Contact(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     contact_icon=db.Column(db.String(50))
     contact_desc=db.Column(db.String(50))
+    contact_link=db.Column(db.String(50))
 
 
 class ContactMe(db.Model):
@@ -105,7 +165,7 @@ class ContactMe(db.Model):
     user_name=db.Column(db.String(50))
     user_email=db.Column(db.String(50))
     user_phone=db.Column(db.String(50))
-    user_message=db.Column(db.String(50))
+    user_message=db.Column(db.Text)
 
 # contact end
 
@@ -115,7 +175,7 @@ class SocicalIcon(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     social_icon_name=db.Column(db.String(50))
     social_icon=db.Column(db.String(50))
-
+    social_icon_link=db.Column(db.String(50))
 # social-icon end
 
 

@@ -16,4 +16,9 @@ def index():
     descs= Experience.query.all()
     feeds=FeedbackHeading.query.all()
     tests=Feedback.query.all()
-    return render_template ('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames,skills=skills, services=services,serviceboxs=serviceboxs,descs=descs, feeds=feeds,tests=tests)
+    icons=SocicalIcon.query.all()
+    blogs=Postjs.query.all()
+    contacts=ContactHeading.query.all()
+    return render_template('main/index.html',posts=posts,portheads=portheads,headers=headers, aboutnames=aboutnames,skills=skills, services=services,serviceboxs=serviceboxs,descs=descs, feeds=feeds,tests=tests,icons=icons,blogs=blogs,contacts=contacts)
+
+
