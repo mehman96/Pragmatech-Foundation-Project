@@ -1,25 +1,104 @@
 from app import app
 from app.models import *
 from app import db
-from flask import render_template,request,redirect
+from flask import render_template,request,redirect,url_for
 import os
+from flask_bcrypt import Bcrypt
+def loginCheck(param):
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return param
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/admin')
 def admin_index():
+   
    posts=Post.query.all()
    portheads=PostHeading.query.all()
    headers=PostHeading01.query.all()
    aboutnames=AboutHeading.query.all()
-   skills=SkillBar.query.all()
    services=ServicesHeading.query.all()
    serviceboxs=ServicesBox.query.all()
-   descs= Experience.query.all()
    feeds=FeedbackHeading.query.all()
    tests=Feedback.query.all()
    icons=SocicalIcon.query.all()
    blogs=Postjs.query.all()
    contacts=ContactHeading.query.all()
-   return render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames,skills=skills,services=services,serviceboxs=serviceboxs,descs=descs, feeds= feeds,tests=tests,icons=icons,blogs=blogs,contacts=contacts)
+   logos=Logo.query.all()
+   panels=AboutBox.query.all()
+   heads=Menu.query.all()
+   menus=SiteHeading.query.all()
+   ends=Aboutboxend.query.all()
+   return loginCheck(render_template('admin/index.html', posts=posts,portheads=portheads,headers=headers,aboutnames=aboutnames,services=services,serviceboxs=serviceboxs,feeds=feeds,tests=tests,icons=icons,blogs=blogs,contacts=contacts,logos=logos,panels=panels,heads=heads,menus=menus,ends=ends))
+  
+   
+
+
+# 
+# add
+@app.route('/admin/head', methods=['GET','POST']) 
+def head():
+   heads=Menu.query.all()
+   if request.method=='POST':
+      head=Menu(
+         menu_name=request.form['menu_name'],
+      )     
+      db.session.add(head)
+      db.session.commit()
+      return redirect('/admin/head')
+   return loginCheck(render_template('admin/head.html',heads=heads))
+
+@app.route("/admin/headdelete/<id>")
+def headdelete(id):
+   head=Menu.query.get(id)
+   db.session.delete(head)
+   db.session.commit()
+   return loginCheck('/admin/head')
+
+
+@app.route("/admin/headupdate/<id>" , methods=['GET','POST'])  
+def headupdate(id):
+   head=Menu.query.get(id)
+   if request.method=='POST':
+      head.menu_name=request.form['menu_name']
+      db.session.commit()
+      return redirect('/admin/head')
+   return loginCheck('admin/headupdate.html',head=head)
+
+# menu
+@app.route('/admin/menu', methods=['GET','POST']) 
+def menu():
+   menus=SiteHeading.query.all()
+   if request.method=='POST':
+      menu=SiteHeading(
+      menu_subheading=request.form['menu_subheading'],
+      menu_heading=request.form['menu_heading'],
+      menu_button_name=request.form['menu_button_name']
+      )     
+      db.session.add(menu)
+      db.session.commit()
+      return redirect('/admin/menu')
+   return loginCheck(render_template('admin/menu.html',menus=menus))
+   
+   
+@app.route("/admin/menudelete/<id>")
+def menudelete(id):
+   menu=SiteHeading.query.get(id)
+   db.session.delete(menu)
+   db.session.commit()
+   return redirect('/admin/menu')
+
+@app.route("/admin/menuupdate/<id>" , methods=['GET','POST'])  
+def menuupdate(id):
+    menu=SiteHeading.query.get(id)
+    if request.method=='POST':
+      menu.menu_subheading=request.form['menu_subheading']
+      menu.menu_heading=request.form['menu_heading']
+      menu.menu_button_name =request.form['menu_button_name']
+      db.session.commit()
+      return redirect('/admin/menuupdate')
+    return loginCheck(render_template('admin/menu.html',menu=menu))
 
 # about start
 @app.route('/admin/aboutname', methods=['GET','POST']) 
@@ -33,7 +112,7 @@ def adminAbout():
       db.session.add(aboutname)
       db.session.commit()
       return redirect('/admin/aboutname')
-   return render_template('admin/aboutname.html',aboutnames=aboutnames)
+   return loginCheck(render_template('admin/aboutname.html',aboutnames=aboutnames))
    
 @app.route("/admin/aboutdelete/<id>")
 def aboutdelete(id):
@@ -51,55 +130,59 @@ def aboutupdate(id):
       aboutname.about_desc_name=request.form['about_desc_name']
       db.session.commit()
       return redirect('/admin/aboutname')
-   return render_template('admin/aboutupdate.html',aboutname=aboutname)
+   return loginCheck(render_template('admin/aboutupdate.html',aboutname=aboutname))
+
+# panel
+# add
+
+@app.route('/admin/panel', methods=['GET','POST']) 
+def panel():
+   panels=AboutBox.query.all()
+   if request.method=='POST':
+      file=request.files['line_panel_img']
+      filename=file.filename
+      file.save(os.path.join (app.config['UPLOAD_FOLDER'],filename))
+      panel=AboutBox(
+         line_panel_subheading=request.form['line_panel_subheading'],
+         line_panel_heading=request.form['line_panel_heading'],
+         line_panel_title=request.form['line_panel_title'],
+         line_panel_img=filename
+
+      )     
+      db.session.add(panel)
+      db.session.commit()
+      return redirect('/admin/panel')
+   return loginCheck(render_template('admin/panel.html',panels=panels))
+
+# delete
+@app.route("/admin/paneldelete/<id>")
+def paneldelete(id):
+   panel=AboutBox.query.get(id)
+   db.session.delete(panel)
+   db.session.commit()
+   return redirect('/admin/panel')
+
+
+# update
+@app.route("/admin/panelupdate/<id>" , methods=['GET','POST']) 
+def panelupdate(id):
+   panel=AboutBox.query.get(id)
+   if request.method=='POST':
+      file=request.files['line_panel_img']
+      filename=file.filename
+      file.save(os.path.join (app.config['UPLOAD_FOLDER'],filename))
+      panel.line_panel_subheading=request.form['line_panel_subheading']
+      panel.line_panel_heading=request.form['line_panel_heading']
+      panel.line_panel_title=request.form['line_panel_title']
+      panel.line_panel_img=filename
+      db.session.commit()
+      return redirect('/admin/panel')
+   return loginCheck(render_template('admin/panelupdate.html',panel=panel))
 
 # about end
 
-# skill-bar start  
-# add
-@app.route('/admin/skill', methods=['GET','POST']) 
-def SkillAbout():
-   skills=SkillBar.query.all()
-   if request.method=='POST':
-      skill=SkillBar(
-      skill_name=request.form['skill_name'],
-      skill_persantage=request.form['skill_persantage']
-      )     
-      db.session.add(skill)
-      db.session.commit()
-      return redirect('/admin/skill')
-   return render_template('admin/skill.html',skills=skills)
-   #
-
-   # delete
-@app.route("/admin/skilldelete/<id>")
-def skilldelete(id):
-   skill=SkillBar.query.get(id)
-   db.session.delete(skill)
-   db.session.commit()
-   return redirect('/admin/skill')
- 
-   #
-
-# update
-
-@app.route("/admin/skillupdate/<id>" , methods=['GET','POST'])  
-def Skillupdate(id):
-   skill=SkillBar.query.get(id)
-   if request.method=='POST':
-      skill.skill_name=request.form['skill_name']
-      skill.skill_persantage=request.form['skill_persantage']
-      db.session.commit()
-      return redirect('/admin/skill')
-   return render_template('admin/skillupdate.html',skill=skill)
-
-# 
-
-# skill-bar end
-
-
 # servies start 
-
+# servicehead
 # add
 @app.route('/admin/serviceshead', methods=['GET','POST']) 
 def ServicesHead():
@@ -112,7 +195,7 @@ def ServicesHead():
       db.session.add(services)
       db.session.commit()
       return redirect('/admin/serviceshead')
-   return render_template('admin/serviceshead.html',services=services)
+   return loginCheck(render_template('admin/serviceshead.html',services=services))
 
 # 
 
@@ -135,7 +218,7 @@ def Servicesupdate(id):
       service.services_heading=request.form['services_heading']
       db.session.commit()
       return redirect('/admin/serviceshead')
-   return render_template('admin/servicesheadupdate.html',service=service)
+   return loginCheck(render_template('admin/servicesheadupdate.html',service=service))
 
 # 
 
@@ -153,7 +236,7 @@ def servicesbox():
       db.session.add(servicebox)
       db.session.commit()
       return redirect('/admin/servicesbox')
-   return render_template('admin/servicesbox.html',serviceboxs=serviceboxs)
+   return loginCheck(render_template('admin/servicesbox.html',serviceboxs=serviceboxs))
 
 # 
 
@@ -177,7 +260,7 @@ def Servicesboxupdate(id):
          servicebox.services_title=request.form['services_title']
          db.session.commit()
          return redirect('/admin/servicesbox')
-   return render_template('admin/servicesboxupdate.html',servicebox=servicebox)
+   return loginCheck(render_template('admin/servicesboxupdate.html',servicebox=servicebox))
 
 # 
 
@@ -199,7 +282,7 @@ def admin_post():
       db.session.add(post)
       db.session.commit()
       return redirect('/admin/post')
-   return render_template('admin/post.html',posts=posts)
+   return loginCheck(render_template('admin/post.html',posts=posts))
 
 
 @app.route("/admin/postdelete/<id>")
@@ -215,41 +298,40 @@ def postupdate(id):
    if request.method=='POST':
       file=request.files['project_img']
       filename=file.filename
-      file.save(os.path.join ('app/static/uploads/',filename))
+      file.save(os.path.join('app/static/uploads/',filename))
       post.project_name=request.form['project_name']
       post.project_header=request.form['project_header']
       post.project_img=filename
       db.session.commit()
       return redirect('/admin/post')
-   return render_template('admin/postupdate.html',post=post)
+   return loginCheck(render_template('admin/postupdate.html',post=post))
 
-# post js start 
+# blog start 
 # add
+# Mehman Mirzeyev 1 a1/jpg
+#Mehman Mirzeyv 2 a2.jpg
 @app.route('/admin/blog', methods=['GET','POST']) 
 def blog():
    blogs=Postjs.query.all()
    if request.method=='POST':
-      file=request.files['project_close_img']
       file=request.files['project_img_js']
       filename=file.filename
-      file.save(os.path.join ('app/static/uploads/',filename))
+      file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
       blog=Postjs(
          project_name_js=request.form['project_name_js'],
+
          project_header_js =request.form['project_header_js'],
          project_desc_js=request.form['project_desc_js'],  
          project_client=request.form['project_client'],
          project_cat=request.form['project_cat'],
-         project_cat_name =request.form['project_cat_name'],
-         project_client_name=request.form['project_client_name'],
          close_icon=request.form['close_icon'],
          close_icon_name=request.form['close_icon_name'],
-         project_close_img=filename,
          project_img_js=filename
       )     
       db.session.add(blog)
       db.session.commit()
       return redirect('/admin/blog')
-   return render_template('admin/blog.html',blogs=blogs)
+   return loginCheck(render_template('admin/blog.html',blogs=blogs))
 
 
 # delete
@@ -268,34 +350,22 @@ def blogdelete(id):
 def blogupdate(id):
    blog=Postjs.query.get(id)
    if request.method=='POST':
-      file=request.files['project_close_img']
       file=request.files['project_img_js']
       filename=file.filename
-      file.save(os.path.join('app/static/uploads/',filename))
+      file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
       blog.project_name_js=request.form['project_name_js']
       blog.project_header_js =request.form['project_header_js']
       blog.project_desc_js=request.form['project_desc_js']  
       blog.project_client=request.form['project_client']
       blog.project_cat=request.form['project_cat']
-      blog.project_cat_name =request.form['project_cat_name']
-      blog.project_client_name=request.form['project_client_name']
       blog.close_icon=request.form['close_icon']
       blog.close_icon_name=request.form['close_icon_name']
-      blog.project_close_img=filename
       blog.project_img_js=filename
       db.session.commit()
       return redirect('/admin/blog')
-   return render_template('admin/blogupdate.html',blog=blog)
+   return loginCheck(render_template('admin/blogupdate.html',blog=blog))
 
-
-
-
-
-
-
-
-
-
+# portfolio head
 
 @app.route('/admin/porthead', methods=['GET','POST']) 
 def admin_porthead():
@@ -308,7 +378,7 @@ def admin_porthead():
       db.session.add(porthead)
       db.session.commit()
       return redirect('/admin/porthead')
-   return render_template('admin/porthead.html',portheads=portheads)
+   return loginCheck(render_template('admin/porthead.html',portheads=portheads))
    
 @app.route("/admin/portupdate/<id>" , methods=['GET','POST'])  
 def portupdate(id):
@@ -318,7 +388,7 @@ def portupdate(id):
       porthead.portfolio_heading=request.form['portfolio_heading']
       db.session.commit()
       return redirect('/admin/porthead')
-   return render_template('admin/portheadupdate.html',porthead=porthead)
+   return loginCheck(render_template('admin/portheadupdate.html',porthead=porthead))
 
 @app.route("/admin/portdelete/<id>")
 def portdelete(id):
@@ -327,93 +397,9 @@ def portdelete(id):
    db.session.commit()
    return redirect('/admin/porthead')
 
-@app.route('/admin/portmenu', methods=['GET','POST']) 
-def admin_portmenu():
-   headers=PostHeading01.query.all()
-   if request.method=='POST':
-      header=PostHeading01(
-         portfolio_menu_name=request.form['portfolio_menu_name']
-      )     
-      db.session.add(header)
-      db.session.commit()
-      return redirect('/admin/portmenu')
-   return render_template('admin/portmenu.html',headers=headers)
-   
-
-@app.route("/admin/portmenudelete/<id>")
-def portmenudelete(id):
-   header=PostHeading01.query.get(id)
-   db.session.delete(header)
-   db.session.commit()
-   return redirect('/admin/portmenu')
-
-@app.route("/admin/portmenuupdate/<id>" , methods=['GET','POST'])  
-def portmenuupdate(id):
-   header=PostHeading01.query.get(id)
-   if request.method=='POST':
-      header.portfolio_menu_name=request.form['portfolio_menu_name']
-      db.session.commit()
-      return redirect('/admin/porthead')
-   return render_template('admin/portmenuupdate.html',header=header)
-
-
-
-
-
-
-
-
-
+#
 
 # portfolio end
-
-# education start
-# add
-@app.route('/admin/experience', methods=['GET','POST']) 
-def experince():
-   descs= Experience.query.all()
-   if request.method=='POST':
-      desc=Experience(
-         start_date=request.form['start_date'],
-         end_date=request.form['end_date'],
-         title_header=request.form['title_header'],
-         desc=request.form['desc']
-      )     
-      db.session.add(desc)
-      db.session.commit()
-      return redirect('/admin/experience')
-   return render_template('admin/experience.html',descs=descs)
-
-# 
-
-# delete
-@app.route("/admin/experincedelete/<id>")
-def Experincedelete(id):
-   desc= Experience.query.get(id)
-   db.session.delete(desc)
-   db.session.commit()
-   return redirect('/admin/experience')
- 
-# 
-
-# update
-@app.route("/admin/experienceupdate/<id>" , methods=['GET','POST'])  
-def Experinceupdate(id):
-   desc= Experience.query.get(id)
-   if request.method=='POST':
-         desc.start_date=request.form['start_date']
-         desc.end_date=request.form['end_date']
-         desc.title_header=request.form['title_header']
-         desc.desc=request.form['desc']
-
-         db.session.commit()
-         return redirect('/admin/experience')
-   return render_template('admin/experienceupdate.html',desc=desc)
-
-# 
-
-
-# education end
 
 
 # testimionals start
@@ -430,7 +416,7 @@ def feedbackheading():
       db.session.add(feed)
       db.session.commit()
       return redirect('/admin/feedbackheading')
-   return render_template('admin/feedbackheading.html',feeds=feeds)
+   return loginCheck (render_template('admin/feedbackheading.html',feeds=feeds))
 
 # 
 
@@ -453,7 +439,7 @@ def feedbackheadingupdate(id):
          feed.testi_heading=request.form['testi_heading']
          db.session.commit()
          return redirect('/admin/feedbackheading')
-   return render_template('admin/feedbackheadingupdate.html',feed=feed)
+   return loginCheck(render_template('admin/feedbackheadingupdate.html',feed=feed))
 # 
 
 # Feedback start
@@ -462,21 +448,22 @@ def feedbackheadingupdate(id):
 def feedback():
    tests=Feedback.query.all()
    if request.method=='POST':
-      file=request.files['commenter_img']
-      filename=file.filename
-      file.save(os.path.join ('app/static/uploads/',filename))
+      file_commenter=request.files['commenter_img']
+      filename_commenter_name=file_commenter.filename
+      file_commenter.save(os.path.join (app.config['UPLOAD_FOLDER'],filename_commenter_name))
       test=Feedback(
          commenter_name=request.form['commenter_name'],
          commenter_title=request.form['commenter_title'],
-         commenter_social_media=request.form['commenter_social_media'],
-         commenter_desc=request.form['commenter_desc'],
-         commenter_img=filename
+         commenter_twitter=request.form['commenter_twitter'],
+         commenter_facebook =request.form['commenter_facebook'],
+         commenter_linkedin=request.form['commenter_linkedin'],
+         commenter_img=filename_commenter_name
 
       )     
       db.session.add(test)
       db.session.commit()
       return redirect('/admin/feedback')
-   return render_template('admin/feedback.html',tests=tests)
+   return loginCheck(render_template('admin/feedback.html',tests=tests))
 
 #delete 
 
@@ -495,30 +482,112 @@ def feedbackdelete(id):
 def feedbackupdate(id):
    test=Feedback.query.get(id)
    if request.method=='POST':
-      file=request.files['commenter_img']
-      filename=file.filename
-      file.save(os.path.join ('app/static/uploads/',filename))
+      file_commenter=request.files['commenter_img']
+      filename_commenter_name=file_commenter.filename
+      file_commenter.save(os.path.join (app.config['UPLOAD_FOLDER'],filename_commenter_name))
       test.commenter_name=request.form['commenter_name']
       test.commenter_title=request.form['commenter_title']
-      test.commenter_social_media=request.form['commenter_social_media']
-      test.commenter_desc=request.form['commenter_desc']
-      test.commenter_img=filename
+      test.commenter_twitter=request.form['commenter_twitter']
+      test.commenter_facebook =request.form['commenter_facebook']
+      test.commenter_linkedin=request.form['commenter_linkedin']
+      test.commenter_img=filename_commenter_name
       db.session.commit()
-      return redirect('/admin/test')
-   return render_template('admin/feedbackupdate.html',test=test)
+      return redirect('/admin/feedback')
+   return loginCheck(render_template('admin/feedbackupdate.html',test=test))
 
 # 
 
+@app.route('/admin/fkend', methods=['GET','POST']) 
+def end():
+   ends=Aboutboxend.query.all()
+   if request.method=='POST':
+      end=Aboutboxend(
+      line_panel_desc=request.form['line_panel_desc'],
+   
+      )     
+      db.session.add(end)
+      db.session.commit()
+      return redirect('/admin/fkend')
+   return loginCheck (render_template('admin/fkend.html',ends=ends))
+   
+   
+@app.route("/admin/fkenddelete/<id>")
+def fkenddelete(id):
+   end=Aboutboxend.query.get(id)
+   db.session.delete(end)
+   db.session.commit()
+   return redirect('/admin/fkend')
+
+@app.route("/admin/fkendupdate/<id>" , methods=['GET','POST'])  
+def fkendupdate(id):
+   end=Aboutboxend.query.get(id)
+   if request.method=='POST':
+      end.line_panel_desc=request.form['line_panel_desc']
+      db.session.commit()
+      return redirect('/admin/fkendupdate')
+   return loginCheck(render_template('admin/fkend.html',end=end))
 
 
+
+
+
+
+
+
+
+
+
+
+  
 # Feedback end
-
 
 # testimionals end
 
+# logo 
+# add
+@app.route('/admin/logo', methods=['GET','POST']) 
+def logoadd():
+   logos=Logo.query.all()
+   if request.method=='POST':
+      file=request.files['logo_img']
+      file_logo_img=file.filename
+      file.save(os.path.join (app.config['UPLOAD_FOLDER'],file_logo_img))
+      logo=Logo(
+         logo_name=request.form['logo_name'],
+         logo_img=file_logo_img
+      )     
+      db.session.add(logo)
+      db.session.commit()
+      return redirect('/admin/logo')
+   return loginCheck (render_template('admin/logo.html',logos=logos))
 
 
+# delete
+@app.route("/admin/logodelete/<id>")
+def logodelete(id):
+   logo=Logo.query.get(id)
+   db.session.delete(logo)
+   db.session.commit()
+   return redirect('/admin/logo')
 
+# 
+
+# update
+
+@app.route("/admin/logoupdate/<id>" , methods=['GET','POST']) 
+def logoupdate(id):
+   logo=Logo.query.get(id)
+   if request.method=='POST':
+      file_logo_img=request.files['logo_img']
+      file_logo_name=file_logo_img.filename
+      file_logo_img.save(os.path.join (app.config['UPLOAD_FOLDER'],file_logo_name))
+      logo.logo_name=request.form['logo_name']
+      logo.logo_img=request.form['logo_img']
+      db.session.commit()
+      return redirect('/admin/logo')
+   return loginCheck (render_template('admin/logoupdate.html',logo=logo))
+
+# 
 
 # contact start
 
@@ -535,8 +604,8 @@ def contactheading():
       )     
       db.session.add(contact)
       db.session.commit()
-      return redirect('/admin/contact')
-   return render_template('admin/contactheading.html',contacts=contacts)
+      return redirect('/admin/contactheading')
+   return loginCheck(render_template('admin/contactheading.html',contacts=contacts))
    
    # update
 @app.route("/admin/contactheadingupdate/<id>" , methods=['GET','POST'])  
@@ -547,17 +616,14 @@ def contactupdate(id):
       contact.contact_heading_name=request.form['contact_heading_name']
       db.session.commit()
       return redirect('/admin/contact')
-   return render_template('admin/contactheading.html',contact=contact)
+   return loginCheck(render_template('admin/contactheading.html',contact=contact))
 
 @app.route("/admin/contactheadingdelete/<id>")
 def contactdelete(id):
    contact=ContactHeading.query.get(id)
    db.session.delete(contact)
    db.session.commit()
-   return redirect('/admin/contact')
-
-
-
+   return redirect('/admin/contactheading')
 
 
 # contact end
@@ -576,7 +642,7 @@ def socicalIcon():
       db.session.add(icon)
       db.session.commit()
       return redirect('/admin/social')
-   return render_template('admin/social.html',icons=icons)
+   return loginCheck(render_template('admin/social.html',icons=icons))
 
 
 # delete
@@ -599,12 +665,17 @@ def socialupdate(id):
          icon.social_icon_link=request.form['social_icon_link']
          db.session.commit()
          return redirect('/admin/social')
-   return render_template('admin/socialupdate.html',icon=icon)
+   return loginCheck (render_template('admin/socialupdate.html',icon=icon))
 
 # 
 
 
-
+@app.route("/admin/contactformdelete/<id>")
+def contactformdelete(id):
+   contactform = ContactMe.query.get(id)
+   db.session.delete(contactform)
+   db.session.commit()
+   return redirect('/admin/contactform')
 
 
 

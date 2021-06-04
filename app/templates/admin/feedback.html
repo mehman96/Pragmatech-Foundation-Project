@@ -7,8 +7,9 @@
     <input type="file" class="form-control my-2"name="commenter_img"placeholder="commenter img">
     <input type="text" class="form-control my-2"name="commenter_name"placeholder="commenter name">
     <input type="text" class="form-control my-2"name="commenter_title"placeholder="commenter title">
-    <input type="text" class="form-control my-2"name="commenter_social_media"placeholder="commenter social media">
-    <input type="text" class="form-control my-2"name="commenter_desc"placeholder="commenter desc">
+    <input type="text" class="form-control my-2"name="commenter_twitter"placeholder="commenter twitter">
+    <input type="text" class="form-control my-2"name="commenter_facebook"placeholder="commenter facebook">
+    <input type="text" class="form-control my-2"name="commenter_linkedin"placeholder="commenter linkedin">
     <input type="submit" class="btn btn-primary" value="Add Feedback">
 
 </form>
@@ -21,8 +22,10 @@
             <th>commenter img</th>
             <th>commenter name</th>
             <th> commenter title </th>
-            <th>social media</th>
-            <th>commmenter desc</th>
+            <th>commenter twitter</th>
+            <th>commenter facebook</th>
+            <th>commenter linkedin</th>
+
             <th>Actions</th>
         </tr>
     </thead>
@@ -34,8 +37,9 @@
             <td>{{test.commenter_img}}</td>
             <td>{{test.commenter_name}}</td>
             <td>{{test.commenter_title}}</td>
-            <td>{{test.commenter_social_media}}</td>
-            <td>{{test.commenter_desc}}</td>
+            <td>{{test.commenter_twitter}}</td>
+            <td>{{test.commenter_facebook}}</td>
+            <td>{{test.commenter_linkedin}}</td>
 
             <td>
                 <a href="/admin/feedbackdelete/{{test.id}}"> <i class="fas fa-trash-alt"></i></a>

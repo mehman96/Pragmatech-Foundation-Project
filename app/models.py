@@ -1,4 +1,27 @@
+from enum import unique
 from app import db
+
+# admin panel
+class User(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    username=db.Column(db.String(50),unique=True)
+    password=db.Column(db.String(50))
+    email=db.Column(db.String(50),unique=True)
+    fullname=db.Column(db.String(50))
+
+# navbar
+class Menu(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    menu_name=db.Column(db.String(50))
+
+
+class SiteHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    menu_subheading=db.Column(db.String(50))
+    menu_heading=db.Column(db.String(50))
+    menu_button_name=db.Column(db.String(50))
+
+
 # about start
 class AboutHeading(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -6,14 +29,25 @@ class AboutHeading(db.Model):
     about_desc_name=db.Column(db.String(50))
     about_heading_name=db.Column(db.String(50))
 
-class SkillBar(db.Model):
+class AboutBox(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    skill_name=db.Column(db.String(50))
-    skill_persantage=db.Column(db.String(50))
+    line_panel_img=db.Column(db.String(50))
+    line_panel_subheading=db.Column(db.String(50))
+    line_panel_heading=db.Column(db.String(50))
+    line_panel_title=db.Column(db.String(50))
+
+
+class Aboutboxend(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    line_panel_desc=db.Column(db.String(50))
+
+
+
+
 
 # about end
 
-# my_services  start
+#services  start
 class ServicesHeading(db.Model):
         id=db.Column(db.Integer,primary_key=True)
         services_subheading=db.Column(db.String(50))
@@ -26,7 +60,7 @@ class ServicesBox(db.Model):
         services_title_heading=db.Column(db.String(50))
         services_title=db.Column(db.String(50))
 
-# my_services end
+# services end
 
 
 # portfolio start
@@ -56,74 +90,11 @@ class Postjs(db.Model):
     project_desc_js=db.Column(db.String)
     project_client=db.Column(db.String)
     project_cat=db.Column(db.String)
-    project_cat_name=db.Column(db.String)
-    project_client_name=db.Column(db.String)
     close_icon=db.Column(db.String)
     close_icon_name=db.Column(db.String)
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
  # portfolio end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# portfolio end
-    
-
-# education start
-
-class Experience(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    start_date=db.Column(db.String(50))
-    end_date=db.Column(db.String(50))
-    title_header=db.Column(db.String(50))
-    desc=db.Column(db.String(50))
-
-class Education(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    edu_start_date=db.Column(db.String(50))
-    edu_end_date=db.Column(db.String(50))
-    edu_title_header=db.Column(db.String(50))
-    edu_desc=db.Column(db.String(50))
-
-# education end
-
 
 # testimionals start
 
@@ -138,11 +109,22 @@ class Feedback (db.Model):
     commenter_img =db.Column(db.String(50))
     commenter_name=db.Column(db.String(50))
     commenter_title=db.Column(db.String(50))
-    commenter_social_media=db.Column(db.String(50))
-    commenter_desc=db.Column(db.String(50))
+    commenter_twitter=db.Column(db.String(50))
+    commenter_facebook=db.Column(db.String(50))
+    commenter_linkedin=db.Column(db.String(50))
+    
 
    
 # testimionals end
+
+# logo 
+
+class Logo(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    logo_name=db.Column(db.String(50))
+    logo_img =db.Column(db.String(50))
+    
+# 
 
 
 # contact start 
